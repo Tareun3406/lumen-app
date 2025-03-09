@@ -3,6 +3,8 @@ import {TamaguiProvider} from "tamagui";
 import tamaguiConfig from "@/tamagui.config";
 import {DarkTheme, DefaultTheme, ThemeProvider} from "@react-navigation/native";
 import {useColorScheme} from "react-native";
+import { Provider } from "react-redux";
+import {store} from "@/store/store";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -11,10 +13,12 @@ export default function RootLayout() {
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme={colorScheme!}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name={"index"} />
-          <Stack.Screen name={"play"} />
-        </Stack>
+        <Provider store={ store }>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name={"index"} />
+            <Stack.Screen name={"play"} />
+          </Stack>
+        </Provider>
       </ThemeProvider>
     </TamaguiProvider>
   );
