@@ -1,6 +1,7 @@
 import {IActionProps} from "@/hooks/actionHooks";
 import OneToggleToken from "@/components/tokens/OneToggleToken";
 import OneCounterToken from "@/components/tokens/OneCounterToken";
+import SetzTokens from "@/components/tokens/SetzTokens";
 
 export default function TokenPanel(props: IActionProps) {
   const character = props.player.character
@@ -22,7 +23,7 @@ export default function TokenPanel(props: IActionProps) {
 
       // 그 외 특화
       case "세츠메이":
-        break;
+        return <SetzTokens player={props.player} />;
       case "레브":
         break;
       case "타오":
