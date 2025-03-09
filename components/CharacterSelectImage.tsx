@@ -4,6 +4,7 @@ import React from "react";
 
 export interface CharacterSelectImageProps {
   character: Character;
+  size: number;
 }
 export default function CharacterSelectImage(props: CharacterSelectImageProps) {
   return (
@@ -11,8 +12,8 @@ export default function CharacterSelectImage(props: CharacterSelectImageProps) {
       <Image
         source={props.character.portrait}
         objectFit={"contain"}
-        height={126}
-        width={126}
+        height={props.size}
+        width={props.size}
       />
     </>
   )

@@ -10,6 +10,11 @@ const styleSheet = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: "center",
+  },
+  flexSpaceAround: {
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center",
   }
 })
 

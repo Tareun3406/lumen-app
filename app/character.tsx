@@ -42,7 +42,7 @@ export default function SelectCharacter() {
         <XStack style={styleSheet.centeredContainer}>
           <YStack>
             <SizableText>{firstPlayer.character.name}</SizableText>
-            <CharacterSelectImage character={firstPlayer.character} />
+            <CharacterSelectImage character={firstPlayer.character} size={126}/>
           </YStack>
           <YStack style={{
             flex: 1,
@@ -63,13 +63,13 @@ export default function SelectCharacter() {
           </YStack>
           <YStack>
             <SizableText>{secondPlayer.character.name}</SizableText>
-            <CharacterSelectImage character={secondPlayer.character} />
+            <CharacterSelectImage character={secondPlayer.character} size={126}/>
           </YStack>
         </XStack>
         <View style={styleSheet.flexWrap}>
           {characters.filter(character => (character.name !== "선택없음")).map((character, i) => (
             <TouchableOpacity onPress={() => onClickCharacter(character)}>
-              <CharacterSelectImage character={character} key={i}/>
+              <CharacterSelectImage character={character} size={126} key={i}/>
             </TouchableOpacity>
             ))}
         </View>
