@@ -14,7 +14,7 @@ export default function Board() {
   const secondPlayer = useAppSelector(selectSecondPlayer);
 
   return (
-    <YStack>
+    <YStack gap={"$2"}>
       <XStack style={styleSheet.flexSpaceAround}>
         <CharacterStatus player={firstPlayer} />
         <XGroup>

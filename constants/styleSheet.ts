@@ -14,7 +14,7 @@ const styleSheet = StyleSheet.create({
   flexSpaceAround: {
     justifyContent: "space-around",
     alignItems: "center",
-  }
+  },
 })
 
 export default styleSheet;

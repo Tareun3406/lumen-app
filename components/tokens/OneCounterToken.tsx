@@ -29,7 +29,7 @@ export default function OneCounterToken(props: IActionProps) {
   )
 
   return (
-    <XStack>
+    <XStack gap={"$1.5"}>
       <TokenToolTip descriptions={token.description}>
         <Image
           source={token.img}

@@ -17,7 +17,7 @@ export function HpProgressBar(props: HpProgressBarProps) {
   }, [props.player.character.hp.maxHp, props.player.currentHp])
 
   return (
-    <YStack height={60} gap="$4" theme={"blue"}>
+    <YStack theme={"blue"}>
       <Progress size={sizeProp} value={progress}>
         <Progress.Indicator animation="bouncy" />
       </Progress>
