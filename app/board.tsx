@@ -7,6 +7,7 @@ import CharacterStatus from "@/components/CharacterStatus";
 import {Cable, RotateCw, Settings, StepBack, TextSearch, User} from "@tamagui/lucide-icons";
 import styleSheet from "@/constants/styleSheet";
 import TimerPanel from "@/components/TimerPanel";
+import TokenPanel from "@/components/TokenPanel";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
@@ -34,6 +35,10 @@ export default function Board() {
         <DamageButtonPanel player={firstPlayer} />
         <TimerPanel />
         <DamageButtonPanel player={secondPlayer} />
+      </XStack>
+      <XStack style={styleSheet.flexSpaceAround}>
+        <TokenPanel player={firstPlayer} otherPlayer={secondPlayer} />
+        <TokenPanel player={secondPlayer} otherPlayer={firstPlayer} />
       </XStack>
     </YStack>
   )

@@ -379,7 +379,7 @@ const characters: readonly Character[] = Object.freeze([
 
 export interface Token {
   name: string;
-  img: string;
+  img: (string & ImageSourcePropType);
   type: "TOGGLE" | "COUNTER";
   toggle?: boolean;
   count?: number;
