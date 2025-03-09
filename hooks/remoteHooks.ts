@@ -15,9 +15,9 @@ import {
   setMemberList,
   setSocketStatus,
   showNotificationMessage
-} from "../slices/remoteSlice";
-import { selectBoard, setBoardState, setPreventTrigger } from "../slices/boardSlice";
-import { toggleReadyTimer } from "../slices/timerSlice";
+} from "@/store/slices/remoteSlice";
+import { selectBoard, setBoardState, setPreventTrigger } from "@/store/slices/boardSlice";
+import { toggleReadyTimer } from "@/store/slices/timerSlice";
 import { IMessage } from "@stomp/stompjs";
 
 export function useRemote() {

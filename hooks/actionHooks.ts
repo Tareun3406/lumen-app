@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "./storeHooks";
-import { selectRemote } from "../slices/remoteSlice";
+import { selectRemote } from "@/store/slices/remoteSlice";
 import {
   addToDamageLogs,
   addTokenToFirst,
@@ -27,8 +27,8 @@ import {
   setTokenToggleToSecond,
   setTokenToggleToSecondAsList,
   triggerPublish
-} from "../slices/boardSlice";
-import { selectTimer, toggleReadyTimer } from "../slices/timerSlice";
+} from "@/store/slices/boardSlice";
+import { selectTimer, toggleReadyTimer } from "@/store/slices/timerSlice";
 import { useRemote } from "./remoteHooks";
 
 export interface IActionProps {
