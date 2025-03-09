@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import characters, { Character } from "../scripts/Characters";
+import characters, { Character } from "@/constants/character";
 import _ from "lodash";
 
 export interface PlayerState {
