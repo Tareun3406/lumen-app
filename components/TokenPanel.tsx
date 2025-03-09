@@ -1,5 +1,6 @@
 import {IActionProps} from "@/hooks/actionHooks";
 import OneToggleToken from "@/components/tokens/OneToggleToken";
+import OneCounterToken from "@/components/tokens/OneCounterToken";
 
 export default function TokenPanel(props: IActionProps) {
   const character = props.player.character
@@ -17,7 +18,7 @@ export default function TokenPanel(props: IActionProps) {
       // 카운터형 한개
       case "울프":
       case "비올라":
-        break;
+        return <OneCounterToken player={props.player} />;
 
       // 그 외 특화
       case "세츠메이":
