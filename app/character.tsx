@@ -50,12 +50,8 @@ export default function SelectCharacter() {
             alignItems: "center",
           }}>
             <XStack>
-              <TouchableOpacity onPress={() => setToNonSelectCharacter(firstPlayer)}>
-                <Button>1P 초기화</Button>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => setToNonSelectCharacter(secondPlayer)}>
-                <Button>2P 초기화</Button>
-              </TouchableOpacity>
+                <Button onPress={() => setToNonSelectCharacter(firstPlayer)}>1P 초기화</Button>
+                <Button onPress={() => setToNonSelectCharacter(secondPlayer)}>2P 초기화</Button>
             </XStack>
             <Link href={"/board"}>
               <Button>선택 완료</Button>

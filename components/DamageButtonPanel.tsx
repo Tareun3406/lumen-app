@@ -13,19 +13,19 @@ export default function DamageButtonPanel(props: IActionProps) {
   return (
     <YStack style={styleSheet.centeredContainer} gap={"$2"}>
       <XStack style={styleSheet.flexSpaceAround} gap={"$5"}>
-        <TouchableOpacity onPress={() => damageToHp(100)}><Button width={"$8"}>-100</Button></TouchableOpacity>
-        <TouchableOpacity onPress={() => damageToHp(200)}><Button width={"$8"}>-200</Button></TouchableOpacity>
-        <TouchableOpacity onPress={() => damageToHp(300)}><Button width={"$8"}>-300</Button></TouchableOpacity>
+        <Button width={"$8"} onPress={() => damageToHp(100)}>-100</Button>
+        <Button width={"$8"} onPress={() => damageToHp(200)}>-200</Button>
+        <Button width={"$8"} onPress={() => damageToHp(300)}>-300</Button>
       </XStack>
       <XStack style={styleSheet.flexSpaceAround} gap={"$5"}>
-        <TouchableOpacity onPress={() => damageToHp(400)}><Button width={"$8"}>-400</Button></TouchableOpacity>
-        <TouchableOpacity onPress={() => damageToHp(500)}><Button width={"$8"}>-500</Button></TouchableOpacity>
-        <TouchableOpacity onPress={() => damageToHp(600)}><Button width={"$8"}>-600</Button></TouchableOpacity>
+        <Button width={"$8"} onPress={() => damageToHp(400)}>-400</Button>
+        <Button width={"$8"} onPress={() => damageToHp(500)}>-500</Button>
+        <Button width={"$8"} onPress={() => damageToHp(600)}>-600</Button>
       </XStack>
       <XStack style={styleSheet.flexSpaceAround} gap={"$5"}>
-        <TouchableOpacity onPress={() => damageToHp(700)}><Button width={"$8"}>-700</Button></TouchableOpacity>
-        <TouchableOpacity onPress={() => damageToHp(1000)}><Button width={"$8"}>-1000</Button></TouchableOpacity>
-        <TouchableOpacity onPress={() => healToHp(100)}><Button width={"$8"}>+100</Button></TouchableOpacity>
+        <Button width={"$8"} onPress={() => damageToHp(700)}>-700</Button>
+        <Button width={"$8"} onPress={() => damageToHp(1000)}>-1000</Button>
+        <Button width={"$8"} onPress={() => healToHp(100)}>+100</Button>
       </XStack>
     </YStack>
   )

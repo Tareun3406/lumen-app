@@ -1,6 +1,5 @@
 import {IActionProps, usePlayerAction} from "@/hooks/actionHooks";
 import TokenToolTip from "@/components/atom/TokenToolTip";
-import {TouchableOpacity} from "react-native";
 import {Button, Image, View, XStack, YStack} from "tamagui";
 import {useMemo} from "react";
 import styleSheet from "@/constants/styleSheet";
@@ -16,15 +15,11 @@ export default function OneCounterToken(props: IActionProps) {
 
   const counterButton = (
     <YStack style={styleSheet.centeredContainer}>
-      <TouchableOpacity onPress={() => addToken(0)}>
-        <Button size={"$3"}>+</Button>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => setTokenCount(0, 0)}>
-        <Button size={"$3"}>{token.count?.toString()}/{token.maxCount?.toString()}</Button>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => removeToken(0)}>
-        <Button size={"$3"}>-</Button>
-      </TouchableOpacity>
+        <Button size={"$3"} onPress={() => addToken(0)}>+</Button>
+        <Button size={"$3"} onPress={() => setTokenCount(0, 0)}>
+          {token.count?.toString()}/{token.maxCount?.toString()}
+        </Button>
+        <Button size={"$3"}  onPress={() => removeToken(0)}>-</Button>
     </YStack>
   )
 
