@@ -19,21 +19,30 @@ const characters: readonly Character[] = Object.freeze([
         img: require("../assets/images/tokens/setz.png"),
         type: "TOGGLE",
         toggle: false,
-        description: "루멘 페이즈 시 상대보다 체력이 적다면 [연습] 1장을 루멘 존에 배치할 수 있다. (최대 1장)"
+        description: "루멘 페이즈 시 상대보다 체력이 적다면 [연습] 1장을 루멘 존에 배치할 수 있다. (최대 1장)",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       },
       {
         name: "신속",
         img: require("../assets/images/tokens/fast.png"),
         type: "TOGGLE",
         toggle: false,
-        description: "자신의 모든 기술 속도가 1 빨라진다. 수비 기술 사용 시 사이드 덱에 돌아간다."
+        description: "자신의 모든 기술 속도가 1 빨라진다. 수비 기술 사용 시 사이드 덱에 돌아간다.",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       },
       {
         name: "정확",
         img: require("../assets/images/tokens/accurate.png"),
         type: "TOGGLE",
         toggle: false,
-        description: "자신의 모든 기술 데미지 + 100, 수비 기술 사용 시 사이드 덱에 돌아간다."
+        description: "자신의 모든 기술 데미지 + 100, 수비 기술 사용 시 사이드 덱에 돌아간다.",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       }
     ]
   },
@@ -55,7 +64,10 @@ const characters: readonly Character[] = Object.freeze([
         img: require("../assets/images/tokens/root.png"),
         type: "TOGGLE",
         toggle: false,
-        description: "[차지] 공격기술만 레디 가능, 해당 기술은 2 느려지고 데미지가 200 증가한다."
+        description: "[차지] 공격기술만 레디 가능, 해당 기술은 2 느려지고 데미지가 200 증가한다.",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       }
     ]
   },
@@ -128,7 +140,10 @@ const characters: readonly Character[] = Object.freeze([
         img: require("../assets/images/tokens/delphi.png"),
         type: "TOGGLE",
         toggle: false,
-        description: "[다운 스탠스] 효과가 없는 기술 사용시 1 느려진다."
+        description: "[다운 스탠스] 효과가 없는 기술 사용시 1 느려진다.",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0
       }
     ]
   },
@@ -151,7 +166,10 @@ const characters: readonly Character[] = Object.freeze([
         type: "TOGGLE",
         toggle: false,
         description:
-          "[예고장]이 루멘존을 벗어날 경우 [예고] 상태가 해제된다. [예고장] 브레이크시 -2fp 및 사이드덱 1장 브레이크"
+          "[예고장]이 루멘존을 벗어날 경우 [예고] 상태가 해제된다. [예고장] 브레이크시 -2fp 및 사이드덱 1장 브레이크",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       }
     ]
   },
@@ -174,7 +192,10 @@ const characters: readonly Character[] = Object.freeze([
         type: "TOGGLE",
         toggle: false,
         description:
-          "[오버리밋] 모든 니아 공격 데미지 +100, 리커버리 페이즈시 루멘존 니아 기술 1장 브레이크 또는 패,리스트에서 2장 루멘존으로 이동"
+          "[오버리밋] 모든 니아 공격 데미지 +100, 리커버리 페이즈시 루멘존 니아 기술 1장 브레이크 또는 패,리스트에서 2장 루멘존으로 이동",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       }
     ]
   },
@@ -196,6 +217,9 @@ const characters: readonly Character[] = Object.freeze([
         img: require("../assets/images/tokens/rev.png"),
         type: "TOGGLE",
         toggle: false,
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
         description:
           "상쇄시 자신이 데미지를 주었다면 추가로 100 데미지 주고 [암야] 상태가 된다. [암야] 상대 특수판정 제거"
       },
@@ -204,7 +228,9 @@ const characters: readonly Character[] = Object.freeze([
         img: require("../assets/images/tokens/dagger.png"),
         type: "COUNTER",
         count: 0,
+        toggleCount: 3,
         maxCount: 6,
+        toggle: false,
         description: "콤보시 [단검] 토큰을 모두 브레이크할 수 있다. 그 후 토큰 3장당 200 데미지"
       }
     ]
@@ -227,6 +253,9 @@ const characters: readonly Character[] = Object.freeze([
         img: require("../assets/images/tokens/harmony.png"),
         type: "TOGGLE",
         toggle: false,
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
         description:
           "음, 양 카운터가 모두 최대일때 [조화] 상태가 되며 어느 한쪽이 3 미만이 될경우 [조화] 상태가 해제된다."
       },
@@ -234,16 +263,20 @@ const characters: readonly Character[] = Object.freeze([
         name: "음",
         img: require("../assets/images/tokens/yin.png"),
         type: "COUNTER",
+        toggle: false,
         count: 0,
         maxCount: 4,
+        toggleCount: 0,
         description: "히트시 +1FP, [조화] 루멘페이즈시 +1FP"
       },
       {
         name: "양",
         img: require("../assets/images/tokens/yang.png"),
         type: "COUNTER",
+        toggle: false,
         count: 0,
         maxCount: 4,
+        toggleCount: 0,
         description: "타오 기술 카운터시 +100 데미지, [조화] 타오 기술 데미지 +100"
       }
     ]
@@ -267,28 +300,40 @@ const characters: readonly Character[] = Object.freeze([
         img: require("../assets/images/tokens/lita.png"),
         type: "TOGGLE",
         toggle: false,
-        description: "자신에게 [성녀] 부여, 루멘 페이즈 시 하나의 레기온을 축복한다."
+        description: "자신에게 [성녀] 부여, 루멘 페이즈 시 하나의 레기온을 축복한다.",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       },
       {
         name: "축복-가디언",
         img: require("../assets/images/tokens/guardian.png"),
         type: "TOGGLE",
         toggle: false,
-        description: "[가디언] 방어 및 상쇄 시 +2FP"
+        description: "[가디언] 방어 및 상쇄 시 +2FP",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       },
       {
         name: "축복-어쌔신",
         img: require("../assets/images/tokens/assassin.png"),
         type: "TOGGLE",
         toggle: false,
-        description: "[어쌔신] 카운터시 추가로 100 데미지"
+        description: "[어쌔신] 카운터시 추가로 100 데미지",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       },
       {
         name: "축복-팔라딘",
         img: require("../assets/images/tokens/paladin.png"),
         type: "TOGGLE",
         toggle: false,
-        description: "[팔라딘] 콤보 시 리스트에서 기술 1장 획득"
+        description: "[팔라딘] 콤보 시 리스트에서 기술 1장 획득",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       },
       {
         name: "빛의 루멘",
@@ -296,7 +341,10 @@ const characters: readonly Character[] = Object.freeze([
         type: "TOGGLE",
         toggle: false,
         description:
-          "체력 1000 이하 발동 가능. 모든 레기온의 축복 효과 적용, 모든 받는 데미지 -100, [성녀] 효과 기술 데미지 +100"
+          "체력 1000 이하 발동 가능. 모든 레기온의 축복 효과 적용, 모든 받는 데미지 -100, [성녀] 효과 기술 데미지 +100",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       }
     ]
   },
@@ -356,7 +404,10 @@ const characters: readonly Character[] = Object.freeze([
         type: "TOGGLE",
         toggle: false,
         description:
-          "루멘 존에 판도라 박스가 있을 때, 루멘 페이즈 시 상대 패 한장을 골라 그 카드의 종류를 선언할 수 있다. 맞힐경우 [디제스터 원] 상태 부여. 틀릴경우 패 한장을 버린다."
+          "루멘 존에 판도라 박스가 있을 때, 루멘 페이즈 시 상대 패 한장을 골라 그 카드의 종류를 선언할 수 있다. 맞힐경우 [디제스터 원] 상태 부여. 틀릴경우 패 한장을 버린다.",
+        count: 0,
+        toggleCount: 0,
+        maxCount: 0,
       }
     ]
   },
@@ -381,10 +432,10 @@ export interface IToken {
   name: string;
   img: (string & ImageSourcePropType);
   type: "TOGGLE" | "COUNTER";
-  toggle?: boolean;
-  count?: number;
-  maxCount?: number;
-  toggleCount?: number;
+  toggle: boolean;
+  count: number;
+  maxCount: number;
+  toggleCount: number;
   description: string;
 }
 

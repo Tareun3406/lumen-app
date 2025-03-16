@@ -9,13 +9,11 @@ export default function OneCounterToken(props: IActionProps) {
   const { setTokenToggle } = usePlayerAction(props);
 
   useEffect(() => {
-    if ((token.count || token.count == 0 ) && token.toggleCount) {
-      const payload = {
-        index: 0,
-        value : token.count >= token?.toggleCount
-      }
-      setTokenToggle(payload);
+    const payload = {
+      index: 0,
+      value : token.count >= token?.toggleCount
     }
+    setTokenToggle(payload);
   }, [token.count]);
 
   return (
