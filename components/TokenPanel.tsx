@@ -4,6 +4,7 @@ import OneCounterToken from "@/components/tokens/OneCounterToken";
 import SetzTokens from "@/components/tokens/character/SetzTokens";
 import RevTokens from "@/components/tokens/character/RevTokens";
 import TaoTokens from "@/components/tokens/character/TaoTokens";
+import LinTokens from "@/components/tokens/character/LinTokens";
 
 export default function TokenPanel(props: IActionProps) {
   const character = props.player.character
@@ -33,7 +34,7 @@ export default function TokenPanel(props: IActionProps) {
       case "리타":
         break;
       case "린":
-        break;
+        return <LinTokens player={props.player} />
       case "요한":
         break;
 

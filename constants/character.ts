@@ -368,7 +368,7 @@ const characters: readonly Character[] = Object.freeze([
         toggle: false,
         count: 0,
         maxCount: 1000,
-        toggleCount: 1,
+        toggleCount: 5,
         description:
           "자신의 [린] 기술이 브레이크 될 때마다 불씨 카운터 +1"
       }
