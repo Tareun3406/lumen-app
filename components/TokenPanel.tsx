@@ -1,7 +1,7 @@
 import {IActionProps} from "@/hooks/actionHooks";
 import OneToggleToken from "@/components/tokens/OneToggleToken";
 import OneCounterToken from "@/components/tokens/OneCounterToken";
-import SetzTokens from "@/components/tokens/SetzTokens";
+import SetzTokens from "@/components/tokens/character/SetzTokens";
 
 export default function TokenPanel(props: IActionProps) {
   const character = props.player.character
