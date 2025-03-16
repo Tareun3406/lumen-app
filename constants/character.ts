@@ -391,7 +391,7 @@ const characters: readonly Character[] = Object.freeze([
         name: "예지",
         img: require("../assets/images/tokens/coin.png"),
         type: "COUNTER",
-        toggle: false,
+        toggle: true,
         count: 2,
         maxCount: 3,
         toggleCount: 1,

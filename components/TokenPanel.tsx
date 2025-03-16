@@ -5,6 +5,7 @@ import SetzTokens from "@/components/tokens/character/SetzTokens";
 import RevTokens from "@/components/tokens/character/RevTokens";
 import TaoTokens from "@/components/tokens/character/TaoTokens";
 import LinTokens from "@/components/tokens/character/LinTokens";
+import JoanTokens from "@/components/tokens/character/JoanTokens";
 
 export default function TokenPanel(props: IActionProps) {
   const character = props.player.character
@@ -36,7 +37,7 @@ export default function TokenPanel(props: IActionProps) {
       case "린":
         return <LinTokens player={props.player} />
       case "요한":
-        break;
+        return <JoanTokens player={props.player} />
 
       // 토큰 없음
       case "선택없음":
