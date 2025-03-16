@@ -6,6 +6,7 @@ import RevTokens from "@/components/tokens/character/RevTokens";
 import TaoTokens from "@/components/tokens/character/TaoTokens";
 import LinTokens from "@/components/tokens/character/LinTokens";
 import JoanTokens from "@/components/tokens/character/JoanTokens";
+import LitaTokens from "@/components/tokens/character/LitaTokens";
 
 export default function TokenPanel(props: IActionProps) {
   const character = props.player.character
@@ -33,7 +34,7 @@ export default function TokenPanel(props: IActionProps) {
       case "타오":
         return <TaoTokens player={props.player} />
       case "리타":
-        break;
+        return <LitaTokens player={props.player} />
       case "린":
         return <LinTokens player={props.player} />
       case "요한":

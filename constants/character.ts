@@ -299,7 +299,7 @@ const characters: readonly Character[] = Object.freeze([
         name: "레기온",
         img: require("../assets/images/tokens/lita.png"),
         type: "TOGGLE",
-        toggle: false,
+        toggle: true,
         description: "자신에게 [성녀] 부여, 루멘 페이즈 시 하나의 레기온을 축복한다.",
         count: 0,
         toggleCount: 0,
