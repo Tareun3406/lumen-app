@@ -2,6 +2,7 @@ import {IActionProps} from "@/hooks/actionHooks";
 import OneToggleToken from "@/components/tokens/OneToggleToken";
 import OneCounterToken from "@/components/tokens/OneCounterToken";
 import SetzTokens from "@/components/tokens/character/SetzTokens";
+import RevTokens from "@/components/tokens/character/RevTokens";
 
 export default function TokenPanel(props: IActionProps) {
   const character = props.player.character
@@ -25,7 +26,7 @@ export default function TokenPanel(props: IActionProps) {
       case "세츠메이":
         return <SetzTokens player={props.player} />;
       case "레브":
-        break;
+        return <RevTokens player={props.player} otherPlayer={props.otherPlayer}/>
       case "타오":
         break;
       case "리타":
