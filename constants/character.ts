@@ -377,7 +377,7 @@ const characters: readonly Character[] = Object.freeze([
   }
 ]);
 
-export interface Token {
+export interface IToken {
   name: string;
   img: (string & ImageSourcePropType);
   type: "TOGGLE" | "COUNTER";
@@ -395,7 +395,7 @@ export interface Character {
     maxHp: number;
     hpHand: [number, number][]
   }
-  tokens: Token[];
+  tokens: IToken[];
 }
 
 export default characters;
