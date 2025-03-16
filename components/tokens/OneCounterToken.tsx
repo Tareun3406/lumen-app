@@ -1,27 +1,16 @@
-import {IActionProps, usePlayerAction} from "@/hooks/actionHooks";
+import {IActionProps} from "@/hooks/actionHooks";
 import TokenToolTip from "@/components/atom/TokenToolTip";
-import {Button, Image, View, XStack, YStack} from "tamagui";
+import {Image, View, XStack} from "tamagui";
 import {useMemo} from "react";
-import styleSheet from "@/constants/styleSheet";
+import TokenCounterButton from "@/components/atom/TokenCounterButton";
 
 export default function OneCounterToken(props: IActionProps) {
   const token = props.player.character.tokens[0];
-  const { addToken, removeToken, setTokenCount } = usePlayerAction(props);
 
   const getCounterToggle = useMemo(() => {
     if (token.count && token.toggleCount)
       return token.count >= token?.toggleCount;
   }, [token]);
-
-  const counterButton = (
-    <YStack style={styleSheet.centeredContainer}>
-        <Button size={"$3"} onPress={() => addToken(0)}>+</Button>
-        <Button size={"$3"} onPress={() => setTokenCount(0, 0)}>
-          {token.count?.toString()}/{token.maxCount?.toString()}
-        </Button>
-        <Button size={"$3"}  onPress={() => removeToken(0)}>-</Button>
-    </YStack>
-  )
 
   return (
     <XStack gap={"$1.5"}>
@@ -42,7 +31,7 @@ export default function OneCounterToken(props: IActionProps) {
           opacity: getCounterToggle ? 0 : 0.6
         }}/>
       </TokenToolTip>
-      {counterButton}
+      <TokenCounterButton tokenIndex={0} player={props.player} />
     </XStack>
   )
 }
