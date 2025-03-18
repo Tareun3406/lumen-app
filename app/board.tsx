@@ -8,10 +8,14 @@ import {Cable, RotateCw, Settings, StepBack, TextSearch, User} from "@tamagui/lu
 import styleSheet from "@/constants/styleSheet";
 import TimerPanel from "@/components/TimerPanel";
 import TokenPanel from "@/components/TokenPanel";
+import {useGlobalAction} from "@/hooks/actionHooks";
+import {useRouter} from "expo-router";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
   const secondPlayer = useAppSelector(selectSecondPlayer);
+  const { initializeBoard } = useGlobalAction();
+  const router = useRouter()
 
   return (
     <View style={styleSheet.centeredContainer}>
@@ -19,12 +23,12 @@ export default function Board() {
         <XStack style={styleSheet.flexSpaceAround}>
           <CharacterStatus player={firstPlayer} />
           <XGroup>
-            <XGroup.Item><Button icon={User} /></XGroup.Item>
-            <XGroup.Item><Button icon={RotateCw}/></XGroup.Item>
-            <XGroup.Item><Button icon={Cable}/></XGroup.Item>
-            <XGroup.Item><Button icon={Settings}/></XGroup.Item>
-            <XGroup.Item><Button icon={TextSearch}/></XGroup.Item>
-            <XGroup.Item><Button icon={StepBack}/></XGroup.Item>
+            <XGroup.Item><Button onPress={() => router.push('/character')} icon={User} /></XGroup.Item>
+            <XGroup.Item><Button onPress={initializeBoard} icon={RotateCw}/></XGroup.Item>
+            <XGroup.Item><Button onPress={() => {}} icon={Cable}/></XGroup.Item>
+            <XGroup.Item><Button onPress={() => {}} icon={Settings}/></XGroup.Item>
+            <XGroup.Item><Button onPress={() => {}} icon={TextSearch}/></XGroup.Item>
+            <XGroup.Item><Button onPress={() => {}} icon={StepBack}/></XGroup.Item>
           </XGroup>
           <CharacterStatus player={secondPlayer} />
         </XStack>
