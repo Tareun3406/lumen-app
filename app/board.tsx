@@ -10,12 +10,15 @@ import TimerPanel from "@/components/TimerPanel";
 import TokenPanel from "@/components/TokenPanel";
 import {useGlobalAction} from "@/hooks/actionHooks";
 import {useRouter} from "expo-router";
+import RemoteDialog from "@/components/organisms/RemoteDialog";
+import {setShowRemoteDialog} from "@/store/slices/remoteSlice";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
   const secondPlayer = useAppSelector(selectSecondPlayer);
   const { initializeBoard } = useGlobalAction();
   const router = useRouter()
+  const dispatch = useAppDispatch();
 
   return (
     <View style={styleSheet.centeredContainer}>
@@ -25,7 +28,7 @@ export default function Board() {
           <XGroup>
             <XGroup.Item><Button onPress={() => router.push('/character')} icon={User} /></XGroup.Item>
             <XGroup.Item><Button onPress={initializeBoard} icon={RotateCw}/></XGroup.Item>
-            <XGroup.Item><Button onPress={() => {}} icon={Cable}/></XGroup.Item>
+            <XGroup.Item><Button onPress={() => dispatch(setShowRemoteDialog(true))} icon={Cable}/></XGroup.Item>
             <XGroup.Item><Button onPress={() => {}} icon={Settings}/></XGroup.Item>
             <XGroup.Item><Button onPress={() => {}} icon={TextSearch}/></XGroup.Item>
             <XGroup.Item><Button onPress={() => {}} icon={StepBack}/></XGroup.Item>
@@ -46,6 +49,7 @@ export default function Board() {
           <TokenPanel player={secondPlayer} otherPlayer={firstPlayer} />
         </XStack>
       </YStack>
+      <RemoteDialog />
     </View>
   )
 }
