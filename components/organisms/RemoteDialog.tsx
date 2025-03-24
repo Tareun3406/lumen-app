@@ -2,24 +2,44 @@ import {Button, Dialog, Unspaced} from "tamagui";
 import {useAppDispatch, useAppSelector} from "@/hooks/storeHooks";
 import {selectRemote, setShowRemoteDialog} from "@/store/slices/remoteSlice";
 import { X } from '@tamagui/lucide-icons'
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {useRemote} from "@/hooks/remoteHooks";
+import RemoteDefault from "@/components/mole/remoteDialog/RemoteDefault";
+import RemoteHost from "@/components/mole/remoteDialog/RemoteHost";
+import RemoteJoin from "@/components/mole/remoteDialog/RemoteJoin";
+import RemoteConnected from "@/components/mole/remoteDialog/RemoteConnected";
+import RemoteDisconnected from "@/components/mole/remoteDialog/RemoteDisconnected";
 
 export default function RemoteDialog() {
-  const { showRemoteDialog } = useAppSelector(selectRemote)
+  const { showRemoteDialog, socketStatus } = useAppSelector(selectRemote)
+  const { disconnectRemote, reconnectRemote } = useRemote();
   const dispatch = useAppDispatch()
 
   const [selectType, setSelectType] = useState<"NONE" | "HOST" | "JOIN" | "PENDING" | "CONNECTED" | "DISCONNECTED">(
     "NONE"
   );
-  const { socketStatus } = useAppSelector(selectRemote);
 
-  const { disconnectRemote, reconnectRemote } = useRemote();
   useEffect(() => {
     if (socketStatus === "CONNECTED") setSelectType("CONNECTED");
     else if (socketStatus === "NONE") setSelectType("NONE");
     else if (socketStatus === "DISCONNECTED") setSelectType("DISCONNECTED");
   }, [socketStatus]);
+
+  const dialogBody = useMemo(() => {
+    switch (selectType) {
+      case "NONE":
+        return <RemoteDefault onClickCreateCode={() => setSelectType("HOST")} onClickJoinWithCode={() => setSelectType("JOIN")}/>
+      case "HOST" :
+        return <RemoteHost onClickBack={() => setSelectType("NONE")} onConnected={() => setSelectType("CONNECTED")}/> // todo onConnect 메서드 삭제
+      case "JOIN" :
+        return <RemoteJoin onClickBack={() => setSelectType("NONE")} onConnected={() => setSelectType("CONNECTED")}/>
+      case "CONNECTED" :
+        return <RemoteConnected />
+      case "DISCONNECTED" :
+        return <RemoteDisconnected onCancelConnect={() => setSelectType("NONE")}/>
+    }
+    return <RemoteDefault onClickCreateCode={() => setSelectType("HOST")} onClickJoinWithCode={() => setSelectType("JOIN")}/>
+  }, [selectType])
 
   const handleCancel = async () => {
     await disconnectRemote();
@@ -33,8 +53,8 @@ export default function RemoteDialog() {
   return   (
   <Dialog modal open={showRemoteDialog}>
     <Dialog.Portal >
-      <Dialog.Overlay key="overlay"
-                      // backgroundColor="$shadow6"
+      <Dialog.Overlay key="overlay" // @ts-ignore
+                      backgroundColor="$shadow6"
                       animation="slow"
                       enterStyle={{ opacity: 0 }}
                       exitStyle={{ opacity: 0 }}
@@ -56,19 +76,12 @@ export default function RemoteDialog() {
         exitStyle={{ x: 0, y: 10, opacity: 0, scale: 0.95 }}
         gap="$4"
       >
-        <Dialog.Title >
-          리모트 연결
-        </Dialog.Title>
-        <Dialog.Description >
-          리모트 기능 내용
-        </Dialog.Description>
-        <Button onPress={() => dispatch(setShowRemoteDialog(false))}>닫기</Button>
-
+        {dialogBody}
         <Unspaced>
           <Button
-            position="absolute"
-            // top="$3"
-            // right="$3"
+            position="absolute"   // @ts-ignore
+            top="$3"
+            right="$3"
             size="$2"
             circular
             icon={X}
