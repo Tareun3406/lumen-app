@@ -16,7 +16,7 @@ import {setShowRemoteDialog} from "@/store/slices/remoteSlice";
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
   const secondPlayer = useAppSelector(selectSecondPlayer);
-  const { initializeBoard } = useGlobalAction();
+  const { initializeBoard, goToPreviousDamage } = useGlobalAction();
   const router = useRouter()
   const dispatch = useAppDispatch();
 
@@ -31,7 +31,7 @@ export default function Board() {
             <XGroup.Item><Button onPress={() => dispatch(setShowRemoteDialog(true))} icon={Cable}/></XGroup.Item>
             <XGroup.Item><Button onPress={() => {}} icon={Settings}/></XGroup.Item>
             <XGroup.Item><Button onPress={() => {}} icon={TextSearch}/></XGroup.Item>
-            <XGroup.Item><Button onPress={() => {}} icon={StepBack}/></XGroup.Item>
+            <XGroup.Item><Button onPress={goToPreviousDamage} icon={StepBack}/></XGroup.Item>
           </XGroup>
           <CharacterStatus player={secondPlayer} />
         </XStack>
