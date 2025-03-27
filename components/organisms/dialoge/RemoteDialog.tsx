@@ -4,11 +4,11 @@ import {selectRemote, setShowRemoteDialog} from "@/store/slices/remoteSlice";
 import { X } from '@tamagui/lucide-icons'
 import React, {useEffect, useMemo, useState} from "react";
 import {useRemote} from "@/hooks/remoteHooks";
-import RemoteDefault from "@/components/mole/remoteDialog/RemoteDefault";
-import RemoteHost from "@/components/mole/remoteDialog/RemoteHost";
-import RemoteJoin from "@/components/mole/remoteDialog/RemoteJoin";
-import RemoteConnected from "@/components/mole/remoteDialog/RemoteConnected";
-import RemoteDisconnected from "@/components/mole/remoteDialog/RemoteDisconnected";
+import RemoteDefault from "@/components/organisms/dialoge/remoteDialog/RemoteDefault";
+import RemoteHost from "@/components/organisms/dialoge/remoteDialog/RemoteHost";
+import RemoteJoin from "@/components/organisms/dialoge/remoteDialog/RemoteJoin";
+import RemoteConnected from "@/components/organisms/dialoge/remoteDialog/RemoteConnected";
+import RemoteDisconnected from "@/components/organisms/dialoge/remoteDialog/RemoteDisconnected";
 
 export default function RemoteDialog() {
   const { showRemoteDialog, socketStatus } = useAppSelector(selectRemote)

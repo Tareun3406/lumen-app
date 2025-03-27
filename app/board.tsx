@@ -10,7 +10,7 @@ import TimerPanel from "@/components/TimerPanel";
 import TokenPanel from "@/components/TokenPanel";
 import {useGlobalAction} from "@/hooks/actionHooks";
 import {useRouter} from "expo-router";
-import RemoteDialog from "@/components/organisms/RemoteDialog";
+import RemoteDialog from "@/components/organisms/dialoge/RemoteDialog";
 import {setShowRemoteDialog} from "@/store/slices/remoteSlice";
 
 export default function Board() {

@@ -1,12 +1,12 @@
 import {IActionProps} from "@/hooks/actionHooks";
-import OneToggleToken from "@/components/tokens/OneToggleToken";
-import OneCounterToken from "@/components/tokens/OneCounterToken";
-import SetzTokens from "@/components/tokens/character/SetzTokens";
-import RevTokens from "@/components/tokens/character/RevTokens";
-import TaoTokens from "@/components/tokens/character/TaoTokens";
-import LinTokens from "@/components/tokens/character/LinTokens";
-import JoanTokens from "@/components/tokens/character/JoanTokens";
-import LitaTokens from "@/components/tokens/character/LitaTokens";
+import OneToggleToken from "@/components/organisms/tokens/OneToggleToken";
+import OneCounterToken from "@/components/organisms/tokens/OneCounterToken";
+import SetzTokens from "@/components/organisms/tokens/character/SetzTokens";
+import RevTokens from "@/components/organisms/tokens/character/RevTokens";
+import TaoTokens from "@/components/organisms/tokens/character/TaoTokens";
+import LinTokens from "@/components/organisms/tokens/character/LinTokens";
+import JoanTokens from "@/components/organisms/tokens/character/JoanTokens";
+import LitaTokens from "@/components/organisms/tokens/character/LitaTokens";
 
 export default function TokenPanel(props: IActionProps) {
   const character = props.player.character
