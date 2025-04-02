@@ -19,6 +19,14 @@ export default function RemoteDialog() {
     "NONE"
   );
 
+  const handleCancel = async () => {
+    await disconnectRemote();
+    setSelectType("NONE");
+  };
+  const handleReconnect = async () => {
+    await reconnectRemote();
+  };
+
   useEffect(() => {
     if (socketStatus === "CONNECTED") setSelectType("CONNECTED");
     else if (socketStatus === "NONE") setSelectType("NONE");
@@ -40,14 +48,6 @@ export default function RemoteDialog() {
     }
     return <RemoteDefault onClickCreateCode={() => setSelectType("HOST")} onClickJoinWithCode={() => setSelectType("JOIN")}/>
   }, [selectType])
-
-  const handleCancel = async () => {
-    await disconnectRemote();
-    setSelectType("NONE");
-  };
-  const handleReconnect = async () => {
-    await reconnectRemote();
-  };
 
 
   return   (

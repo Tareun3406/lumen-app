@@ -16,7 +16,7 @@ export default function LitaTokens(props: IActionProps) {
       changeToggle(index);
       return;
     }
-    setTokenToggleAsList({1: index == 1, 2: index === 2, 3: index === 3});
+    setTokenToggleAsList({1: index === 1, 2: index === 2, 3: index === 3});
   }
 
   const handleActiveLumen = () => {
@@ -29,7 +29,7 @@ export default function LitaTokens(props: IActionProps) {
     }
 
     return [guardian, assassin, paladin].find((token)=> token.toggle) ?? region
-  }, [guardian.toggle, assassin.toggle, paladin.toggle, lumen.toggle])
+  }, [region, guardian, assassin, paladin, lumen])
   return (
     <XStack>
       <TouchableOpacity onPress={() => changeToggle(0)}>

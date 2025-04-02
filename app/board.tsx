@@ -1,4 +1,4 @@
-import {Button, SizableText, View, XGroup, XStack, YStack} from "tamagui";
+import {Button, View, XGroup, XStack, YStack} from "tamagui";
 import {useAppDispatch, useAppSelector} from "@/hooks/storeHooks";
 import {selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
 import {HpProgressBar} from "@/components/HpProgressBar";

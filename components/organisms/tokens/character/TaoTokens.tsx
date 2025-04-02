@@ -26,11 +26,11 @@ export default function TaoTokens(props: IActionProps) {
 
   // 타오 토큰 활성화 조건
   useEffect(() => {
-    const harmonyToggle = player.character.tokens[0].toggle;
-    const yinCount = player.character.tokens[1].count;
-    const yangCount = player.character.tokens[2].count;
-    const yinToggle = player.character.tokens[1].toggle;
-    const yangToggle = player.character.tokens[2].toggle;
+    const harmonyToggle = character.tokens[0].toggle;
+    const yinCount = character.tokens[1].count;
+    const yangCount = character.tokens[2].count;
+    const yinToggle = character.tokens[1].toggle;
+    const yangToggle = character.tokens[2].toggle;
 
     const payload: { [type: number]: boolean } = {};
 
@@ -58,7 +58,7 @@ export default function TaoTokens(props: IActionProps) {
     if (Object.keys(payload).length > 0) {
       setTokenToggleAsList(payload);
     }
-  }, [character.tokens]);
+  }, [character.tokens, setTokenToggleAsList]);
 
   return (
     <XStack>

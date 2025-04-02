@@ -195,13 +195,13 @@ export function useGlobalAction() {
 
   // 데미지 로그
   const goToPreviousDamage = () => {
-    if (damageLogs.length == 0) {
+    if (damageLogs.length === 0) {
       return
     }
     const lastIndex = damageLogs.length - 1
     const damageLog = damageLogs[lastIndex]
 
-    if (damageLog.type == "DAMAGE") {
+    if (damageLog.type === "DAMAGE") {
       if (damageLog.isFirstPlayer) dispatch(healToFirst(damageLog.payload))
       else dispatch(healToSecond(damageLog.payload))
     } else {

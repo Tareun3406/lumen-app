@@ -20,7 +20,7 @@ export default function RevTokens(props: IActionProps) {
 
   useEffect(() => {
     setTokenToggle({index: 1, value: daggerToken.count >= daggerToken.toggleCount})
-  }, [daggerToken.count]);
+  }, [daggerToken, setTokenToggle]);
 
   return (
     <XStack gap={"$1.5"}>

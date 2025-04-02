@@ -1,6 +1,5 @@
 import {IActionProps, usePlayerAction} from "@/hooks/actionHooks";
 import {Button, styled, XStack, YStack} from "tamagui";
-import {TouchableOpacity} from "react-native";
 import styleSheet from "@/constants/styleSheet";
 
 export default function DamageButtonPanel(props: IActionProps) {

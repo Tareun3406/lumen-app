@@ -11,10 +11,10 @@ export default function OneCounterToken(props: IActionProps) {
   useEffect(() => {
     const payload = {
       index: 0,
-      value : token.count >= token?.toggleCount
+      value : token.count >= token.toggleCount
     }
     setTokenToggle(payload);
-  }, [token.count]);
+  }, [token, setTokenToggle]);
 
   return (
     <XStack gap={"$1.5"}>

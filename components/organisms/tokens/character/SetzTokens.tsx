@@ -3,7 +3,6 @@ import {selectSettings} from "@/store/slices/settingsSlice";
 import {useAppSelector} from "@/hooks/storeHooks";
 import {Button, Image, View, XStack, YGroup} from "tamagui";
 import {useMemo} from "react";
-import {Pressable, TouchableOpacity} from "react-native";
 
 export default function SetzTokens(props: IActionProps) {
   const { player } = props;

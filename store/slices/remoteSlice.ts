@@ -9,8 +9,8 @@ export interface RemoteState {
   hasControl: boolean;
   playerInviteCode: string;
   observerInviteCode: string;
-  playerList: Array<string>;
-  observerList: Array<string>;
+  playerList: string[];
+  observerList: string[];
   roomId: string;
   hostName: string;
   joiningCode: string;
@@ -31,16 +31,16 @@ export interface INotificationMessage {
 }
 
 export interface MemberListMessage {
-  playerList: Array<string>;
-  observerList: Array<string>;
+  playerList: string[];
+  observerList: string[];
 }
 
 export interface JoinedRoomInfo {
   assignedName: string;
   roomId: string;
   hostName: string;
-  playerList: Array<string>;
-  observerList: Array<string>;
+  playerList: string[];
+  observerList: string[];
   board: BoardState;
   hasControl: boolean;
 }

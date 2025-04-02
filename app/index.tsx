@@ -1,4 +1,4 @@
-import {Button, ToggleGroup, View} from 'tamagui'
+import {Button, View} from 'tamagui'
 import {SizableText} from "tamagui";
 import {Link} from "expo-router";
 import styleSheet from "@/constants/styleSheet";
