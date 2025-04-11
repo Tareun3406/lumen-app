@@ -1,13 +1,13 @@
 import {Button, View, XGroup, XStack, YStack} from "tamagui";
 import {useAppDispatch, useAppSelector} from "@/hooks/storeHooks";
 import {selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
-import {HpProgressBar} from "@/components/HpProgressBar";
-import DamageButtonPanel from "@/components/DamageButtonPanel";
-import CharacterStatus from "@/components/CharacterStatus";
+import {HpProgressBar} from "@/components/atom/HpProgressBar";
+import DamageButtonPanel from "@/components/organisms/panel/DamageButtonPanel";
+import CharacterStatus from "@/components/mole/CharacterStatus";
 import {Cable, RotateCw, Settings, StepBack, TextSearch, User} from "@tamagui/lucide-icons";
 import styleSheet from "@/constants/styleSheet";
-import TimerPanel from "@/components/TimerPanel";
-import TokenPanel from "@/components/TokenPanel";
+import TimerPanel from "@/components/organisms/panel/TimerPanel";
+import TokenPanel from "@/components/organisms/panel/TokenPanel";
 import {useGlobalAction} from "@/hooks/actionHooks";
 import {useRouter} from "expo-router";
 import RemoteDialog from "@/components/organisms/dialoge/RemoteDialog";

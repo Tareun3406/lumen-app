@@ -1,6 +1,6 @@
 import {View, Button, YStack, XStack, SizableText} from "tamagui";
 import characters, { Character } from "@/constants/character";
-import CharacterSelectImage from "@/components/CharacterSelectImage";
+import CharacterSelectImage from "@/components/atom/CharacterSelectImage";
 import {Link} from "expo-router";
 import {useAppDispatch, useAppSelector} from "@/hooks/storeHooks";
 import {

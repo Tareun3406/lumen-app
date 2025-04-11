@@ -1,6 +1,6 @@
 import {PlayerState} from "@/store/slices/boardSlice";
 import {SizableText, XStack} from "tamagui";
-import CharacterSelectImage from "@/components/CharacterSelectImage";
+import CharacterSelectImage from "@/components/atom/CharacterSelectImage";
 import {useMemo} from "react";
 import styleSheet from "@/constants/styleSheet";
 
