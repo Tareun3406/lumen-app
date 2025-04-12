@@ -12,6 +12,8 @@ import {useGlobalAction} from "@/hooks/actionHooks";
 import {useRouter} from "expo-router";
 import RemoteDialog from "@/components/organisms/dialoge/RemoteDialog";
 import {setShowRemoteDialog} from "@/store/slices/remoteSlice";
+import DamageLogSheet from "@/components/organisms/sheet/DamageLogSheet";
+import {useState} from "react";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
@@ -19,6 +21,8 @@ export default function Board() {
   const { initializeBoard, goToPreviousDamage } = useGlobalAction();
   const router = useRouter()
   const dispatch = useAppDispatch();
+
+  const [damageLogOpen, setDamageLogOpen] = useState(false);
 
   return (
     <View style={styleSheet.centeredContainer}>
@@ -30,7 +34,7 @@ export default function Board() {
             <XGroup.Item><Button onPress={initializeBoard} icon={RotateCw}/></XGroup.Item>
             <XGroup.Item><Button onPress={() => dispatch(setShowRemoteDialog(true))} icon={Cable}/></XGroup.Item>
             <XGroup.Item><Button onPress={() => {}} icon={Settings}/></XGroup.Item>
-            <XGroup.Item><Button onPress={() => {}} icon={TextSearch}/></XGroup.Item>
+            <XGroup.Item><Button onPress={() => {setDamageLogOpen(true)}} icon={TextSearch}/></XGroup.Item>
             <XGroup.Item><Button onPress={goToPreviousDamage} icon={StepBack}/></XGroup.Item>
           </XGroup>
           <CharacterStatus player={secondPlayer} />
@@ -50,6 +54,7 @@ export default function Board() {
         </XStack>
       </YStack>
       <RemoteDialog />
+      <DamageLogSheet open={damageLogOpen}  setOpen={(open) => setDamageLogOpen(open)}/>
     </View>
   )
 }
