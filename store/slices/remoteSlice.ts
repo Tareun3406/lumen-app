@@ -75,7 +75,7 @@ let stompClient: Client | null = null;
 
 export const activateRemote = createAsyncThunk("remote/activateRemote", async (_, { dispatch }) => {
   stompClient = new Client({
-    brokerURL: `${process.env.REACT_APP_WS_HOSTNAME}/remote-ws`,
+    brokerURL: `${process.env.EXPO_PUBLIC_WS_HOSTNAME}/remote-ws`,
     reconnectDelay: 0,
     heartbeatIncoming: 5000,
     heartbeatOutgoing: 5000
