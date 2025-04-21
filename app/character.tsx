@@ -14,6 +14,8 @@ import {
 import { TouchableOpacity } from "react-native";
 import styleSheet from "@/constants/styleSheet";
 import {useBoardPublisher} from "@/hooks/sideEffectHook";
+import CharacterSelectDialog from "@/components/organisms/dialoge/CharacterSelectDialog";
+import {useState} from "react";
 
 export default function SelectCharacter() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
@@ -21,19 +23,16 @@ export default function SelectCharacter() {
   const dispatch = useAppDispatch();
   useBoardPublisher();
 
-  const onClickCharacter = (character: Character) => {
-    if (firstPlayer.character.name === "선택없음") {
-      dispatch(setCharacterToFirst(character))
-    } else if (secondPlayer.character.name === "선택없음") {
-      dispatch(setCharacterToSecond(character));
-    }
-  };
+  const [firstSelectOpen, setFirstSelectOpen] = useState(false);
+  const [secondSelectOpen, setSecondSelectOpen] = useState(false);
 
   const setToNonSelectCharacter = (player: PlayerState) => {
     if (player.isFirst) {
-      dispatch(deselectCharacterToFirst());
+      // dispatch(deselectCharacterToFirst());
+      setFirstSelectOpen(true);
     } else {
       dispatch(deselectCharacterToSecond());
+      setSecondSelectOpen(true);
     }
   }
 
@@ -64,14 +63,9 @@ export default function SelectCharacter() {
             <CharacterSelectImage character={secondPlayer.character} size={126}/>
           </YStack>
         </XStack>
-        <View style={styleSheet.flexWrap}>
-          {characters.filter(character => (character.name !== "선택없음")).map((character, i) => (
-            <TouchableOpacity onPress={() => onClickCharacter(character)}>
-              <CharacterSelectImage character={character} size={126} key={i}/>
-            </TouchableOpacity>
-            ))}
-        </View>
       </YStack>
+      <CharacterSelectDialog player={firstPlayer} open={firstSelectOpen} close={() => setFirstSelectOpen(false)} />
+      <CharacterSelectDialog player={secondPlayer} open={secondSelectOpen} close={() => setSecondSelectOpen(false)} />
     </View>
   )
 }
