@@ -13,11 +13,13 @@ import {
 } from "@/store/slices/boardSlice";
 import { TouchableOpacity } from "react-native";
 import styleSheet from "@/constants/styleSheet";
+import {useBoardPublisher} from "@/hooks/sideEffectHook";
 
 export default function SelectCharacter() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
   const secondPlayer = useAppSelector(selectSecondPlayer);
   const dispatch = useAppDispatch();
+  useBoardPublisher();
 
   const onClickCharacter = (character: Character) => {
     if (firstPlayer.character.name === "선택없음") {

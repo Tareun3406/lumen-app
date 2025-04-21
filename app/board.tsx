@@ -12,6 +12,7 @@ import {useGlobalAction} from "@/hooks/actionHooks";
 import {useRouter} from "expo-router";
 import RemoteDialog from "@/components/organisms/dialoge/RemoteDialog";
 import {setShowRemoteDialog} from "@/store/slices/remoteSlice";
+import {useBoardPublisher} from "@/hooks/sideEffectHook";
 import DamageLogSheet from "@/components/organisms/sheet/DamageLogSheet";
 import {useState} from "react";
 
@@ -21,6 +22,7 @@ export default function Board() {
   const { initializeBoard, goToPreviousDamage } = useGlobalAction();
   const router = useRouter()
   const dispatch = useAppDispatch();
+  useBoardPublisher();
 
   const [damageLogOpen, setDamageLogOpen] = useState(false);
 

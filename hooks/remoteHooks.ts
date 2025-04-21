@@ -103,17 +103,6 @@ export function useRemote() {
     });
   };
 
-  const publishUpdate = () => {
-    if (!hasControl || boardState.preventTrigger) return;
-    if (socketStatus !== "CONNECTED") return;
-    dispatch(setPreventTrigger(true));
-    const stompClient = getStompClient();
-    stompClient?.publish({
-      destination: `/app/remote/updateBoard`,
-      headers: { roomId },
-      body: JSON.stringify(boardState)
-    });
-  };
 
   const publishTimer = (isOn: boolean) => {
     if (socketStatus !== "CONNECTED") return;
@@ -126,5 +115,5 @@ export function useRemote() {
     dispatch(toggleReadyTimer(isOn));
   };
 
-  return { connectRemote, reconnectRemote, disconnectRemote, hostRemote, joinRemote, publishUpdate, publishTimer };
+  return { connectRemote, reconnectRemote, disconnectRemote, hostRemote, joinRemote, publishTimer };
 }
