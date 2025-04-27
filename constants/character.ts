@@ -1,54 +1,57 @@
 import {ImageSourcePropType} from "react-native";
 
 const characters: readonly Character[] = Object.freeze([
-  {
-    name: "세츠메이",
-    portrait: require("../assets/images/portraits/setz.png"),
-    hp: {
-      maxHp: 3000,
-      hpHand: [
-        [1500, 9],
-        [2000, 8],
-        [2500, 7],
-        [3000, 6],
-      ]
-    },
-    tokens: [
-      {
-        name: "훈련 부대",
-        img: require("../assets/images/tokens/setz.png"),
-        type: "TOGGLE",
-        toggle: false,
-        description: "루멘 페이즈 시 상대보다 체력이 적다면 [연습] 1장을 루멘 존에 배치할 수 있다. (최대 1장)",
-        count: 0,
-        toggleCount: 0,
-        maxCount: 0,
-      },
-      {
-        name: "신속",
-        img: require("../assets/images/tokens/fast.png"),
-        type: "TOGGLE",
-        toggle: false,
-        description: "자신의 모든 기술 속도가 1 빨라진다. 수비 기술 사용 시 사이드 덱에 돌아간다.",
-        count: 0,
-        toggleCount: 0,
-        maxCount: 0,
-      },
-      {
-        name: "정확",
-        img: require("../assets/images/tokens/accurate.png"),
-        type: "TOGGLE",
-        toggle: false,
-        description: "자신의 모든 기술 데미지 + 100, 수비 기술 사용 시 사이드 덱에 돌아간다.",
-        count: 0,
-        toggleCount: 0,
-        maxCount: 0,
-      }
-    ]
-  },
+  // {
+  //   name: "세츠메이",
+  //   portrait: require("../assets/images/portraits/setz.png"),
+  //   selectImg: require("../assets/images/portraits/setz.png"),
+  //   hp: {
+  //     maxHp: 3000,
+  //     hpHand: [
+  //       [1500, 9],
+  //       [2000, 8],
+  //       [2500, 7],
+  //       [3000, 6],
+  //     ]
+  //   },
+  //   tokens: [
+  //     {
+  //       name: "훈련 부대",
+  //       img: require("../assets/images/tokens/setz.png"),
+  //       type: "TOGGLE",
+  //       toggle: false,
+  //       description: "루멘 페이즈 시 상대보다 체력이 적다면 [연습] 1장을 루멘 존에 배치할 수 있다. (최대 1장)",
+  //       count: 0,
+  //       toggleCount: 0,
+  //       maxCount: 0,
+  //     },
+  //     {
+  //       name: "신속",
+  //       img: require("../assets/images/tokens/fast.png"),
+  //       type: "TOGGLE",
+  //       toggle: false,
+  //       description: "자신의 모든 기술 속도가 1 빨라진다. 수비 기술 사용 시 사이드 덱에 돌아간다.",
+  //       count: 0,
+  //       toggleCount: 0,
+  //       maxCount: 0,
+  //     },
+  //     {
+  //       name: "정확",
+  //       img: require("../assets/images/tokens/accurate.png"),
+  //       type: "TOGGLE",
+  //       toggle: false,
+  //       description: "자신의 모든 기술 데미지 + 100, 수비 기술 사용 시 사이드 덱에 돌아간다.",
+  //       count: 0,
+  //       toggleCount: 0,
+  //       maxCount: 0,
+  //     }
+  //   ]
+  // },
   {
     name: "루트",
     portrait: require("../assets/images/portraits/root.png"),
+    selectImg: require("../assets/images/select/root.png"),
+    selectedImg: require("../assets/images/selected/root.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -74,6 +77,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "울프",
     portrait: require("../assets/images/portraits/wolf.png"),
+    selectImg: require("../assets/images/select/wolf.png"),
+    selectedImg: require("../assets/images/selected/wolf.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -100,6 +105,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "비올라",
     portrait: require("../assets/images/portraits/viola.png"),
+    selectImg: require("../assets/images/select/viola.png"),
+    selectedImg: require("../assets/images/selected/viola.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -125,6 +132,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "델피",
     portrait: require("../assets/images/portraits/delphi.png"),
+    selectImg: require("../assets/images/select/delphi.png"),
+    selectedImg: require("../assets/images/selected/delphi.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -150,6 +159,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "키스",
     portrait: require("../assets/images/portraits/kiss.png"),
+    selectImg: require("../assets/images/select/kiss.png"),
+    selectedImg: require("../assets/images/selected/kiss.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -176,6 +187,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "니아",
     portrait: require("../assets/images/portraits/nia.png"),
+    selectImg: require("../assets/images/select/nia.png"),
+    selectedImg: require("../assets/images/selected/nia.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -202,6 +215,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "레브",
     portrait: require("../assets/images/portraits/rev.png"),
+    selectImg: require("../assets/images/select/rev.png"),
+    selectedImg: require("../assets/images/selected/rev.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -238,6 +253,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "타오",
     portrait: require("../assets/images/portraits/tao.png"),
+    selectImg: require("../assets/images/select/tao.png"),
+    selectedImg: require("../assets/images/selected/tao.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -284,6 +301,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "리타",
     portrait: require("../assets/images/portraits/lita.png"),
+    selectImg: require("../assets/images/select/lita.png"),
+    selectedImg: require("../assets/images/selected/lita.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -351,6 +370,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "린",
     portrait: require("../assets/images/portraits/lin.png"),
+    selectImg: require("../assets/images/select/lin.png"),
+    selectedImg: require("../assets/images/selected/lin.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -377,6 +398,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "요한",
     portrait: require("../assets/images/portraits/joan.png"),
+    selectImg: require("../assets/images/select/joan.png"),
+    selectedImg: require("../assets/images/selected/joan.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -414,6 +437,8 @@ const characters: readonly Character[] = Object.freeze([
   {
     name: "선택없음",
     portrait: "",
+    selectImg: "",
+    selectedImg: "",
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -442,6 +467,8 @@ export interface IToken {
 export interface Character {
   name: "세츠메이" | "루트" | "울프" | "비올라" | "델피" | "키스" | "니아" | "레브" | "타오" | "리타" | "린" | "요한" | "선택없음";
   portrait: (string & ImageSourcePropType);
+  selectImg: (string & ImageSourcePropType);
+  selectedImg: (string & ImageSourcePropType);
   hp: {
     maxHp: number;
     hpHand: [number, number][]

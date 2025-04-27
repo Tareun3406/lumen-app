@@ -10,7 +10,7 @@ export default function CharacterSelectImage(props: CharacterSelectImageProps) {
   return (
     <>
       <Image
-        source={props.character.portrait}
+        source={props.character.selectImg}
         objectFit={"contain"}
         height={props.size}
         width={props.size}

@@ -16,6 +16,7 @@ import styleSheet from "@/constants/styleSheet";
 import {useBoardPublisher} from "@/hooks/sideEffectHook";
 import CharacterSelectDialog from "@/components/organisms/dialoge/CharacterSelectDialog";
 import {useState} from "react";
+import CharacterSelectedImage from "@/components/atom/CharacterSelectedImage";
 
 export default function SelectCharacter() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
@@ -43,24 +44,28 @@ export default function SelectCharacter() {
         <XStack style={styleSheet.centeredContainer}>
           <YStack>
             <SizableText>{firstPlayer.character.name}</SizableText>
-            <CharacterSelectImage character={firstPlayer.character} size={126}/>
+            <TouchableOpacity onPress={() => setToNonSelectCharacter(firstPlayer)}>
+              <CharacterSelectedImage character={firstPlayer.character} size={256}/>
+            </TouchableOpacity>
           </YStack>
           <YStack style={{
             flex: 1,
             justifyContent: "center",
             alignItems: "center",
           }}>
-            <XStack>
-                <Button onPress={() => setToNonSelectCharacter(firstPlayer)}>1P 초기화</Button>
-                <Button onPress={() => setToNonSelectCharacter(secondPlayer)}>2P 초기화</Button>
-            </XStack>
+            {/*<XStack>*/}
+            {/*    <Button onPress={() => setToNonSelectCharacter(firstPlayer)}>1P 초기화</Button>*/}
+            {/*    <Button onPress={() => setToNonSelectCharacter(secondPlayer)}>2P 초기화</Button>*/}
+            {/*</XStack>*/}
             <Link href={"/board"}>
               <Button>선택 완료</Button>
             </Link>
           </YStack>
           <YStack>
             <SizableText>{secondPlayer.character.name}</SizableText>
-            <CharacterSelectImage character={secondPlayer.character} size={126}/>
+            <TouchableOpacity onPress={() => setToNonSelectCharacter(secondPlayer)}>
+              <CharacterSelectedImage character={secondPlayer.character} size={256}/>
+            </TouchableOpacity>
           </YStack>
         </XStack>
       </YStack>
