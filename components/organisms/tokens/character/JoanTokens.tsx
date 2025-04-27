@@ -14,7 +14,7 @@ export default function JoanTokens(props: IActionProps) {
 
   useEffect(() => {
     setTokenToggle({ index: 0, value: coin.count >= coin.toggleCount})
-  }, [coin.count, coin.toggleCount, setTokenToggle])
+  }, [coin.count, coin.toggleCount])
 
   return (
     <XStack>

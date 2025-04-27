@@ -11,7 +11,7 @@ export default function LinTokens(props: IActionProps) {
 
   useEffect(() => {
     setTokenToggle({index: 0, value: token.count >= token.toggleCount})
-  }, [token.count, token.toggleCount, setTokenToggle])
+  }, [token.count, token.toggleCount])
 
   return (
     <XStack gap={"$1.5"}>

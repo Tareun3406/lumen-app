@@ -14,7 +14,7 @@ export default function OneCounterToken(props: IActionProps) {
       value : token.count >= token.toggleCount
     }
     setTokenToggle(payload);
-  }, [token, setTokenToggle]);
+  }, [token]);
 
   return (
     <XStack gap={"$1.5"}>
