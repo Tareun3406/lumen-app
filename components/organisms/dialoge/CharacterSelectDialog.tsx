@@ -38,18 +38,17 @@ export default function CharacterSelectDialog(props: characterSelectDialogProps)
         <Dialog modal open={props.open} >
             <DialogPortal>
                 <Dialog.Overlay key="overlay" // @ts-ignore
-                                backgroundColor="$shadow6"
-                                animation="slow"
-                                enterStyle={{ opacity: 0 }}
-                                exitStyle={{ opacity: 0 }}
+                                backgroundColor="transparent"
                 />
-                <DialogContent>
-                    <DialogTitle style={{textAlign:"center"}}>{props.player.isFirst ? "1P" : "2P"} 캐릭터 선택</DialogTitle>
+                <DialogContent
+                    width="90%"//@ts-ignore
+                    backgroundColor="$shadow6">
+                    <DialogTitle style={{textAlign:"center", color:"white"}}>{props.player.isFirst ? "1P" : "2P"} 캐릭터 선택</DialogTitle>
                     <DialogDescription >
                         <ScrollView     // @ts-ignore
                             maxHeight={250}
                             width="100%"
-                            backgroundColor="$background"
+                            backgroundColor="transparent"
                             padding="$4"
                             borderRadius="$4"
                         >

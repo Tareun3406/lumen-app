@@ -1,6 +1,7 @@
 import {Character} from "@/constants/character";
 import {Image} from "tamagui";
 import React from "react";
+import {characterSources} from "@/constants/imageSource";
 
 export interface CharacterSelectImageProps {
   character: Character;
@@ -10,7 +11,7 @@ export default function CharacterSelectImage(props: CharacterSelectImageProps) {
   return (
     <>
       <Image
-        source={props.character.selectImg}
+        source={characterSources[props.character.name].portrait.localSource}
         objectFit={"contain"}
         height={props.size}
         width={props.size}

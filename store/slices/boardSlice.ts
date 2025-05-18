@@ -27,12 +27,11 @@ export interface BoardState {
 
 const noneCharacter: Character = {
   name: "선택없음",
-  portrait: "",
   hp: {
     maxHp: 1000,
     hpHand: []
   },
-  tokens: []
+  tokens: [],
 };
 
 const initialState: BoardState = {

@@ -49,10 +49,6 @@ const characters: readonly Character[] = Object.freeze([
   // },
   {
     name: "루트",
-    portrait: require("../assets/images/portraits/root.png"),
-    selectImg: require("../assets/images/select/root.png"),
-    selectedImg: require("../assets/images/selected/root.png"),
-    nameImg: require("../assets/images/name/root.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -77,10 +73,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "울프",
-    portrait: require("../assets/images/portraits/wolf.png"),
-    selectImg: require("../assets/images/select/wolf.png"),
-    selectedImg: require("../assets/images/selected/wolf.png"),
-    nameImg: require("../assets/images/name/wolf.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -106,10 +98,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "비올라",
-    portrait: require("../assets/images/portraits/viola.png"),
-    selectImg: require("../assets/images/select/viola.png"),
-    selectedImg: require("../assets/images/selected/viola.png"),
-    nameImg: require("../assets/images/name/viola.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -134,10 +122,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "델피",
-    portrait: require("../assets/images/portraits/delphi.png"),
-    selectImg: require("../assets/images/select/delphi.png"),
-    selectedImg: require("../assets/images/selected/delphi.png"),
-    nameImg: require("../assets/images/name/delphi.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -162,10 +146,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "키스",
-    portrait: require("../assets/images/portraits/kiss.png"),
-    selectImg: require("../assets/images/select/kiss.png"),
-    selectedImg: require("../assets/images/selected/kiss.png"),
-    nameImg: require("../assets/images/name/kiss.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -191,10 +171,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "니아",
-    portrait: require("../assets/images/portraits/nia.png"),
-    selectImg: require("../assets/images/select/nia.png"),
-    selectedImg: require("../assets/images/selected/nia.png"),
-    nameImg: require("../assets/images/name/nia.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -220,10 +196,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "레브",
-    portrait: require("../assets/images/portraits/rev.png"),
-    selectImg: require("../assets/images/select/rev.png"),
-    selectedImg: require("../assets/images/selected/rev.png"),
-    nameImg: require("../assets/images/name/rev.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -259,10 +231,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "타오",
-    portrait: require("../assets/images/portraits/tao.png"),
-    selectImg: require("../assets/images/select/tao.png"),
-    selectedImg: require("../assets/images/selected/tao.png"),
-    nameImg: require("../assets/images/name/tao.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -308,10 +276,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "리타",
-    portrait: require("../assets/images/portraits/lita.png"),
-    selectImg: require("../assets/images/select/lita.png"),
-    selectedImg: require("../assets/images/selected/lita.png"),
-    nameImg: require("../assets/images/name/lita.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -378,10 +342,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "린",
-    portrait: require("../assets/images/portraits/lin.png"),
-    selectImg: require("../assets/images/select/lin.png"),
-    selectedImg: require("../assets/images/selected/lin.png"),
-    nameImg: require("../assets/images/name/lin.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -407,10 +367,6 @@ const characters: readonly Character[] = Object.freeze([
   },
   {
     name: "요한",
-    portrait: require("../assets/images/portraits/joan.png"),
-    selectImg: require("../assets/images/select/joan.png"),
-    selectedImg: require("../assets/images/selected/joan.png"),
-    nameImg: require("../assets/images/name/joan.png"),
     hp: {
       maxHp: 5000,
       hpHand: [
@@ -478,10 +434,6 @@ export interface IToken {
 
 export interface Character {
   name: "세츠메이" | "루트" | "울프" | "비올라" | "델피" | "키스" | "니아" | "레브" | "타오" | "리타" | "린" | "요한" | "선택없음";
-  portrait: (string & ImageSourcePropType);
-  selectImg: (string & ImageSourcePropType);
-  selectedImg: (string & ImageSourcePropType);
-  nameImg: (string & ImageSourcePropType);
   hp: {
     maxHp: number;
     hpHand: [number, number][]
@@ -490,3 +442,4 @@ export interface Character {
 }
 
 export default characters;
+export type CharacterName = Character["name"];
