@@ -4,7 +4,7 @@ import OneCounterToken from "@/components/organisms/tokens/OneCounterToken";
 import SetzTokens from "@/components/organisms/tokens/character/SetzTokens";
 import RevTokens from "@/components/organisms/tokens/character/RevTokens";
 import TaoTokens from "@/components/organisms/tokens/character/TaoTokens";
-import LinTokens from "@/components/organisms/tokens/character/LinTokens";
+import OneInfinityCounterToken from "@/components/organisms/tokens/OneInfinityCounterToken";
 import JoanTokens from "@/components/organisms/tokens/character/JoanTokens";
 import LitaTokens from "@/components/organisms/tokens/character/LitaTokens";
 
@@ -26,6 +26,10 @@ export default function TokenPanel(props: IActionProps) {
       case "비올라":
         return <OneCounterToken player={props.player} />;
 
+      // 카운터형(무한) 한개
+      case "린":
+        return <OneInfinityCounterToken player={props.player} />
+
       // 그 외 특화
       case "세츠메이":
         return <SetzTokens player={props.player} />;
@@ -35,8 +39,6 @@ export default function TokenPanel(props: IActionProps) {
         return <TaoTokens player={props.player} />
       case "리타":
         return <LitaTokens player={props.player} />
-      case "린":
-        return <LinTokens player={props.player} />
       case "요한":
         return <JoanTokens player={props.player} />
 

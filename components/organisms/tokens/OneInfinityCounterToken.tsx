@@ -4,7 +4,7 @@ import {IActionProps, usePlayerAction} from "@/hooks/actionHooks";
 import TokenToggleImg from "@/components/mole/TokenToggleImg";
 import {useEffect} from "react";
 
-export default function LinTokens(props: IActionProps) {
+export default function OneInfinityCounterToken(props: IActionProps) {
   const { player } = props;
   const [ token ] = player.character.tokens;
   const { setTokenToggle } = usePlayerAction(props);
