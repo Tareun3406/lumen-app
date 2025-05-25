@@ -292,7 +292,29 @@ export const characterSources: {
             urlSource: {uri: hostname + ''},
             localSource: require("../assets/images/name/joan-right.png")
         }
-    }
+    },
+    "이제벨": {
+        portrait: {
+            urlSource: {uri: hostname + ''},
+            localSource: require("../assets/images/portraits/lin.png")
+        },
+        standingLeft: {
+            urlSource: {uri: hostname + ''},
+            localSource: require("../assets/images/standing/jezebel-left.png")
+        },
+        standingRight: {
+            urlSource: {uri: hostname + ''},
+            localSource: require("../assets/images/standing/jezebel-right.png")
+        },
+        nameTagLeft: {
+            urlSource: {uri: hostname + ''},
+            localSource: require("../assets/images/name/lin-left.png")
+        },
+        nameTagRight: {
+            urlSource: {uri: hostname + ''},
+            localSource: require("../assets/images/name/lin-right.png")
+        }
+    },
 }
 
 export interface ICharacterSource {

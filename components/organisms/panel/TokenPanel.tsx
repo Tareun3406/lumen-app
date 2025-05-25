@@ -28,6 +28,7 @@ export default function TokenPanel(props: IActionProps) {
 
       // 카운터형(무한) 한개
       case "린":
+      case "이제벨":
         return <OneInfinityCounterToken player={props.player} />
 
       // 그 외 특화
