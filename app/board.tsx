@@ -34,7 +34,7 @@ export default function Board() {
           <XGroup>
             <XGroup.Item><Button onPress={() => router.push('/character')} icon={User} /></XGroup.Item>
             <XGroup.Item><Button onPress={initializeBoard} icon={RotateCw}/></XGroup.Item>
-            <XGroup.Item><Button onPress={() => dispatch(setShowRemoteDialog(true))} icon={Cable}/></XGroup.Item>
+            {/*<XGroup.Item><Button onPress={() => dispatch(setShowRemoteDialog(true))} icon={Cable}/></XGroup.Item>*/}
             {/*<XGroup.Item><Button onPress={() => {}} icon={Settings}/></XGroup.Item>*/}
             <XGroup.Item><Button onPress={() => {setDamageLogOpen(true)}} icon={TextSearch}/></XGroup.Item>
             <XGroup.Item><Button onPress={goToPreviousDamage} icon={StepBack}/></XGroup.Item>
