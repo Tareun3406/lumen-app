@@ -173,24 +173,12 @@ export function useGlobalAction() {
   const dispatch = useAppDispatch();
   const damageLogs = useAppSelector(selectDamageLogs)
   const { hasControl, socketStatus } = useAppSelector(selectRemote);
-  const { readyTimer } = useAppSelector(selectTimer);
-  const { publishTimer } = useRemote();
 
   // 초기화
   const initializeBoard = () => {
     if (!hasControl && socketStatus === "CONNECTED") return;
     dispatch(initialize());
     dispatch(triggerPublish());
-  };
-
-  // 타이머 관련
-  const toggleReadyTimerAction = () => {
-    if (!hasControl && socketStatus === "CONNECTED") return;
-    if (socketStatus === "CONNECTED") {
-      publishTimer(!readyTimer.toggle);
-      return;
-    }
-    dispatch(toggleReadyTimer(!readyTimer.toggle));
   };
 
   // 데미지 로그
@@ -212,5 +200,5 @@ export function useGlobalAction() {
     dispatch(triggerPublish())
   }
 
-  return { initializeBoard, toggleReadyTimerAction, goToPreviousDamage };
+  return { initializeBoard, goToPreviousDamage };
 }
