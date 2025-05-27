@@ -2,7 +2,7 @@ import {PlayerState} from "@/store/slices/boardSlice";
 import {Image, YStack} from "tamagui";
 import {TouchableOpacity} from "react-native";
 import React from "react";
-import {characterSources} from "@/constants/imageSource";
+import {characterImgSources} from "@/constants/imageSource";
 
 export interface ICharacterPanelProps {
     player: PlayerState;
@@ -22,13 +22,13 @@ export default function CharacterPanel(props: ICharacterPanelProps) {
                     width={256}
                     source={
                         isFirst
-                            ? characterSources[character.name].standingLeft.localSource
-                            : characterSources[character.name].standingRight.localSource
+                            ? characterImgSources[character.name].standingLeft
+                            : characterImgSources[character.name].standingRight
                     } />
                 <Image objectFit={"contain"} height={60} width={256} source={
                     isFirst
-                        ? characterSources[character.name].nameTagLeft.localSource
-                        : characterSources[character.name].nameTagRight.localSource
+                        ? characterImgSources[character.name].nameTagLeft
+                        : characterImgSources[character.name].nameTagRight
                 }/>
             </TouchableOpacity>
         </YStack>

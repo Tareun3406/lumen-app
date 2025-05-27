@@ -1,5 +1,3 @@
-import {ImageSourcePropType} from "react-native";
-
 const characters: readonly Character[] = Object.freeze([
   // {
   //   name: "세츠메이",
@@ -17,7 +15,6 @@ const characters: readonly Character[] = Object.freeze([
   //   tokens: [
   //     {
   //       name: "훈련 부대",
-  //       img: require("../assets/images/tokens/setz.png"),
   //       type: "TOGGLE",
   //       toggle: false,
   //       description: "루멘 페이즈 시 상대보다 체력이 적다면 [연습] 1장을 루멘 존에 배치할 수 있다. (최대 1장)",
@@ -27,7 +24,6 @@ const characters: readonly Character[] = Object.freeze([
   //     },
   //     {
   //       name: "신속",
-  //       img: require("../assets/images/tokens/fast.png"),
   //       type: "TOGGLE",
   //       toggle: false,
   //       description: "자신의 모든 기술 속도가 1 빨라진다. 수비 기술 사용 시 사이드 덱에 돌아간다.",
@@ -37,7 +33,6 @@ const characters: readonly Character[] = Object.freeze([
   //     },
   //     {
   //       name: "정확",
-  //       img: require("../assets/images/tokens/accurate.png"),
   //       type: "TOGGLE",
   //       toggle: false,
   //       description: "자신의 모든 기술 데미지 + 100, 수비 기술 사용 시 사이드 덱에 돌아간다.",
@@ -61,7 +56,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "차지",
-        img: require("../assets/images/tokens/root.png"),
         type: "TOGGLE",
         toggle: false,
         description: "[차지] 공격기술만 레디 가능, 해당 기술은 2 느려지고 데미지가 200 증가한다.",
@@ -85,7 +79,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "하울링",
-        img: require("../assets/images/tokens/wolf.png"),
         type: "COUNTER",
         toggle: false,
         count: 0,
@@ -110,7 +103,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "은연",
-        img: require("../assets/images/tokens/viola.png"),
         type: "COUNTER",
         toggle: false,
         count: 0,
@@ -134,7 +126,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "다운 스탠스",
-        img: require("../assets/images/tokens/delphi.png"),
         type: "TOGGLE",
         toggle: false,
         description: "[다운 스탠스] 효과가 없는 기술 사용시 1 느려진다.",
@@ -158,7 +149,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "예고",
-        img: require("../assets/images/tokens/kiss.png"),
         type: "TOGGLE",
         toggle: false,
         description:
@@ -183,7 +173,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "오버리밋",
-        img: require("../assets/images/tokens/nia.png"),
         type: "TOGGLE",
         toggle: false,
         description:
@@ -208,7 +197,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "암야",
-        img: require("../assets/images/tokens/rev.png"),
         type: "TOGGLE",
         toggle: false,
         count: 0,
@@ -219,7 +207,6 @@ const characters: readonly Character[] = Object.freeze([
       },
       {
         name: "단검",
-        img: require("../assets/images/tokens/dagger.png"),
         type: "COUNTER",
         count: 0,
         toggleCount: 3,
@@ -243,7 +230,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "조화",
-        img: require("../assets/images/tokens/harmony.png"),
         type: "TOGGLE",
         toggle: false,
         count: 0,
@@ -254,7 +240,6 @@ const characters: readonly Character[] = Object.freeze([
       },
       {
         name: "음",
-        img: require("../assets/images/tokens/yin.png"),
         type: "COUNTER",
         toggle: false,
         count: 0,
@@ -264,7 +249,6 @@ const characters: readonly Character[] = Object.freeze([
       },
       {
         name: "양",
-        img: require("../assets/images/tokens/yang.png"),
         type: "COUNTER",
         toggle: false,
         count: 0,
@@ -289,7 +273,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "레기온",
-        img: require("../assets/images/tokens/lita.png"),
         type: "TOGGLE",
         toggle: true,
         description: "자신에게 [성녀] 부여, 루멘 페이즈 시 하나의 레기온을 축복한다.",
@@ -299,7 +282,6 @@ const characters: readonly Character[] = Object.freeze([
       },
       {
         name: "축복-가디언",
-        img: require("../assets/images/tokens/guardian.png"),
         type: "TOGGLE",
         toggle: false,
         description: "[가디언] 방어 및 상쇄 시 +2FP",
@@ -309,7 +291,6 @@ const characters: readonly Character[] = Object.freeze([
       },
       {
         name: "축복-어쌔신",
-        img: require("../assets/images/tokens/assassin.png"),
         type: "TOGGLE",
         toggle: false,
         description: "[어쌔신] 카운터시 추가로 100 데미지",
@@ -319,7 +300,6 @@ const characters: readonly Character[] = Object.freeze([
       },
       {
         name: "축복-팔라딘",
-        img: require("../assets/images/tokens/paladin.png"),
         type: "TOGGLE",
         toggle: false,
         description: "[팔라딘] 콤보 시 리스트에서 기술 1장 획득",
@@ -329,7 +309,6 @@ const characters: readonly Character[] = Object.freeze([
       },
       {
         name: "빛의 루멘",
-        img: require("../assets/images/tokens/lita-effect.png"),
         type: "TOGGLE",
         toggle: false,
         description:
@@ -354,7 +333,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "불씨",
-        img: require("../assets/images/tokens/ember.png"),
         type: "COUNTER",
         toggle: false,
         count: 0,
@@ -379,7 +357,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "예지",
-        img: require("../assets/images/tokens/coin.png"),
         type: "COUNTER",
         toggle: true,
         count: 2,
@@ -390,7 +367,6 @@ const characters: readonly Character[] = Object.freeze([
       },
       {
         name: "디제스터 원",
-        img: require("../assets/images/tokens/disaster-one.png"),
         type: "TOGGLE",
         toggle: false,
         description:
@@ -415,7 +391,6 @@ const characters: readonly Character[] = Object.freeze([
     tokens: [
       {
         name: "거미",
-        img: require("../assets/images/tokens/ember.png"),
         type: "COUNTER",
         toggle: false,
         count: 0,
@@ -448,8 +423,7 @@ const characters: readonly Character[] = Object.freeze([
 ]);
 
 export interface IToken {
-  name: string;
-  img: (string & ImageSourcePropType);
+  name: TokenName;
   type: "TOGGLE" | "COUNTER";
   toggle: boolean;
   count: number;
@@ -459,7 +433,7 @@ export interface IToken {
 }
 
 export interface Character {
-  name: "세츠메이" | "루트" | "울프" | "비올라" | "델피" | "키스" | "니아" | "레브" | "타오" | "리타" | "린" | "요한" | "이제벨" | "선택없음";
+  name: CharacterName;
   hp: {
     maxHp: number;
     hpHand: [number, number][]
@@ -467,5 +441,29 @@ export interface Character {
   tokens: IToken[];
 }
 
+export const characterNameList = [
+  "세츠메이", "루트", "울프", "비올라", "델피",
+  "키스", "니아", "레브", "타오", "리타",
+  "린", "요한", "이제벨", "선택없음"
+] as const;
+
+export const tokenNameList = [
+  "훈련 부대", "신속", "정확", // 세츠
+  "차지", // 루트
+  "하울링", // 울프
+  "은연", // 비올라
+  "다운 스탠스", // 델피
+  "예고", // 키스
+  "오버리밋", // 니아
+  "암야", "단검", // 레브
+  "조화", "음", "양", //타오
+  "레기온", "축복-가디언", "축복-어쌔신", "축복-팔라딘", "빛의 루멘", // 리타
+  "불씨", // 린
+  "예지", "디제스터 원", // 요한
+  "거미", // 이제벨
+] as const
+
 export default characters;
-export type CharacterName = Character["name"];
+export type CharacterName = typeof characterNameList[number];
+export type TokenName = typeof tokenNameList[number];
+   

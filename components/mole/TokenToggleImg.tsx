@@ -1,6 +1,7 @@
 import {Image, View} from "tamagui";
 import TokenToolTip from "@/components/atom/TokenToolTip";
 import {IToken} from "@/constants/character";
+import {tokenImgSources} from "@/constants/imageSource";
 
 interface ITokenImageWithToolTipProps {
   token: IToken,
@@ -11,7 +12,7 @@ export default function TokenToggleImg({ token, size, toggle }: ITokenImageWithT
     return (
         <TokenToolTip descriptions={token.description}>
             <Image
-                source={token.img}
+                source={tokenImgSources[token.name]}
                 objectFit={"contain"}
                 height={size}
                 width={size}
