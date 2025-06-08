@@ -1,5 +1,5 @@
 import {Button, View, XGroup, XStack, YStack} from "tamagui";
-import {useAppDispatch, useAppSelector} from "@/hooks/storeHooks";
+import {useAppSelector} from "@/hooks/storeHooks";
 import {selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
 import {HpProgressBar} from "@/components/atom/HpProgressBar";
 import DamageButtonPanel from "@/components/organisms/panel/DamageButtonPanel";
@@ -49,8 +49,12 @@ export default function Board() {
           <DamageButtonPanel player={secondPlayer} />
         </XStack>
         <XStack style={styleSheet.flexSpaceAround}>
-          <TokenPanel player={firstPlayer} otherPlayer={secondPlayer} />
-          <TokenPanel player={secondPlayer} otherPlayer={firstPlayer} />
+          <XStack width={"50%"} style={styleSheet.centeredContainer}>
+            <TokenPanel player={firstPlayer} otherPlayer={secondPlayer} />
+          </XStack>
+          <XStack width={"50%"} style={styleSheet.centeredContainer}>
+            <TokenPanel player={secondPlayer} otherPlayer={firstPlayer} />
+          </XStack>
         </XStack>
       </YStack>
       <RemoteDialog />

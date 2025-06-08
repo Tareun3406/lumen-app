@@ -5,7 +5,9 @@ import {createTamagui } from 'tamagui'
 export const tamaguiConfig = createTamagui({
     ...defaultConfig,
     media: {
-        md: {minWidth: 1024}
+        sm: {minHeight: 0},
+        md: {minHeight: 400},
+        lg: {minHeight: 500}
     },
 })
 
