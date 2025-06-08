@@ -43,6 +43,15 @@ export function useTimer() {
         dispatch(toggleGameTimer(!gameTimer.toggle));
     };
 
+    const initGameTimerAction = () => {
+        dispatch(clearReadyTimerInterval())
+        dispatch(setReadyTimerTime(10));
+        dispatch(toggleReadyTimer(false));
+        dispatch(clearGameTimerInterval())
+        dispatch(setGameTimerTime(60 * 30));
+        dispatch(toggleGameTimer(false));
+    }
+
 
 // Effect
     // 레디 타이머
@@ -84,13 +93,13 @@ export function useTimer() {
             ))
         } else {
             dispatch(clearGameTimerInterval())
-            dispatch(setGameTimerTime(60 * 30));
         }
         dispatch(preventGameTimer());
     }, [gameTimer.toggle]);
 
     return {
         toggleReadyTimerAction,
-        toggleGameTimerAction
+        toggleGameTimerAction,
+        initGameTimerAction
     }
 }

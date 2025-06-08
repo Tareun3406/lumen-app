@@ -14,15 +14,24 @@ import RemoteDialog from "@/components/organisms/dialoge/RemoteDialog";
 import {useBoardPublisher} from "@/hooks/sideEffectHook";
 import DamageLogSheet from "@/components/organisms/sheet/DamageLogSheet";
 import {useState} from "react";
+import {useTimer} from "@/hooks/timerHooks";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
   const secondPlayer = useAppSelector(selectSecondPlayer);
   const { initializeBoard, goToPreviousDamage } = useGlobalAction();
+  const { initGameTimerAction } = useTimer()
   const router = useRouter()
   useBoardPublisher();
 
   const [damageLogOpen, setDamageLogOpen] = useState(false);
+
+
+  const initialize = () => {
+    initializeBoard()
+    initGameTimerAction()
+  }
+
 
   return (
     <View style={styleSheet.centeredContainer}>
@@ -31,7 +40,7 @@ export default function Board() {
           <CharacterStatus player={firstPlayer} />
           <XGroup>
             <XGroup.Item><Button onPress={() => router.push('/character')} icon={User} /></XGroup.Item>
-            <XGroup.Item><Button onPress={initializeBoard} icon={RotateCw}/></XGroup.Item>
+            <XGroup.Item><Button onPress={initialize} icon={RotateCw}/></XGroup.Item>
             {/*<XGroup.Item><Button onPress={() => dispatch(setShowRemoteDialog(true))} icon={Cable}/></XGroup.Item>*/}
             {/*<XGroup.Item><Button onPress={() => {}} icon={Settings}/></XGroup.Item>*/}
             <XGroup.Item><Button onPress={() => {setDamageLogOpen(true)}} icon={TextSearch}/></XGroup.Item>
