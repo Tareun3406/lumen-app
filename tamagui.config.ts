@@ -1,9 +1,16 @@
 import { defaultConfig } from '@tamagui/config/v4'
-import {createTamagui } from 'tamagui'
+import {createFont, createTamagui} from 'tamagui'
 
+const pretendardFont = createFont({
+    family: 'Pretendard',        // expo-font로 로드된 이름
+    size: defaultConfig.fonts.body.size,
+})
 
 export const tamaguiConfig = createTamagui({
     ...defaultConfig,
+    fonts: {
+      body: pretendardFont,
+    },
     media: {
         sm: {minHeight: 0},
         md: {minHeight: 400},
