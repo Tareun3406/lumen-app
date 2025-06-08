@@ -55,7 +55,7 @@ export const characterImgSources: {
         nameTagRight: require("@/assets/images/name/delphi-right.png")
     },
     "키스": {
-        portrait: require("@/assets/images/standing/kiss-left.png"),
+        portrait: require("@/assets/images/portraits/kiss.png"),
         standingLeft: require("@/assets/images/standing/kiss-left.png"),
         standingRight:require("@/assets/images/standing/kiss-right.png"),
         nameTagLeft: require("@/assets/images/name/kiss-left.png"),
