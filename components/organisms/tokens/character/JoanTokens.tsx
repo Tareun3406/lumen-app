@@ -18,14 +18,14 @@ export default function JoanTokens(props: IActionProps) {
 
   return (
     <XStack gap={"$3"}>
+      <XStack style={styleSheet.centeredContainer} >
+        <TokenToggleImg token={coin} size={116} />
+        <TokenCounterButton tokenIndex={0} player={player} />
+      </XStack>
       <XStack>
         <TouchableOpacity onPress={() => changeToggle(1)}>
           <TokenToggleImg token={disasterOne} size={116} />
         </TouchableOpacity>
-      </XStack>
-      <XStack style={styleSheet.centeredContainer} >
-        <TokenToggleImg token={coin} size={116} />
-        <TokenCounterButton tokenIndex={0} player={player} />
       </XStack>
     </XStack>
   )
