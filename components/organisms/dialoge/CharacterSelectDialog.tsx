@@ -39,6 +39,7 @@ export default function CharacterSelectDialog(props: characterSelectDialogProps)
             <DialogPortal>
                 <Dialog.Overlay key="overlay" // @ts-ignore
                                 backgroundColor="transparent"
+                                onPress={props.close}
                 />
                 <DialogContent
                     width="90%"//@ts-ignore
