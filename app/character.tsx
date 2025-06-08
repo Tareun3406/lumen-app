@@ -12,6 +12,7 @@ import {useBoardPublisher} from "@/hooks/sideEffectHook";
 import CharacterSelectDialog from "@/components/organisms/dialoge/CharacterSelectDialog";
 import React, {useState} from "react";
 import CharacterPanel from "@/components/organisms/panel/CharacterPanel";
+import {miscImgSources} from "@/constants/imageSource";
 
 export default function SelectCharacter() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
@@ -32,7 +33,7 @@ export default function SelectCharacter() {
   // style={{justifyContent: "center", alignItems: "center"}}
   return (
     <View style={[styleSheet.centeredContainer]}>
-      <ImageBackground source={require("@/assets/images/background.png")}
+      <ImageBackground source={miscImgSources.background}
                        style={[styleSheet.centeredContainer, styleSheet.background]}
           // imageStyle={styleSheet.imageContain}
       >
@@ -49,12 +50,12 @@ export default function SelectCharacter() {
         <CharacterSelectDialog player={secondPlayer} open={secondSelectOpen} close={() => setSecondSelectOpen(false)} />
       </ImageBackground>
       <Image
-          source={require('@/assets/images/backgroundShadow-top.png')}
+          source={miscImgSources.backgroundShadowTop}
           style={{position:"absolute", top: 0, width: '100%', maxHeight: '20%'}}
       />
 
       <Image
-          source={require('@/assets/images/backgroundShadow-bottom.png')}
+          source={miscImgSources.backgroundShadowBottom}
           style={{position:"absolute", bottom: 0, width: '100%', maxHeight: '30%'}}
       />
     </View>

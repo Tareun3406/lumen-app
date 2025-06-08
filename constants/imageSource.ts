@@ -139,3 +139,13 @@ export const tokenImgSources: {
     "디제스터 원": require("@/assets/images/tokens/disaster-one.png"),
     "거미": require("@/assets/images/tokens/spider.png"),
 }
+
+export const miscImgSources: {
+    background : ImageSourcePropType,
+    backgroundShadowBottom: ImageSourcePropType,
+    backgroundShadowTop: ImageSourcePropType,
+} = {
+    background: require("@/assets/images/background.png"),
+    backgroundShadowBottom: require("@/assets/images/backgroundShadow-bottom.png"),
+    backgroundShadowTop: require("@/assets/images/backgroundShadow-top.png")
+}
