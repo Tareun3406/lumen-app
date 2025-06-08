@@ -55,7 +55,7 @@ export default function CharacterSelectDialog(props: characterSelectDialogProps)
                         >
                             <View style={styleSheet.flexWrap}>
                                 {characters.filter(character => (character.name !== "선택없음")).map((character, i) => (
-                                    <TouchableOpacity onPress={() => onClickCharacter(character)}>
+                                    <TouchableOpacity onPress={() => onClickCharacter(character)} key={i}>
                                         <CharacterSelectImage character={character} size={126} key={i}/>
                                     </TouchableOpacity>
                                 ))}
