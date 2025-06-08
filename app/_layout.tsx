@@ -1,4 +1,5 @@
-import { Stack } from "expo-router";
+import {Stack} from "expo-router";
+import * as SplashScreen from 'expo-splash-screen';
 import {TamaguiProvider} from "tamagui";
 import tamaguiConfig from "@/tamagui.config";
 import {DarkTheme, DefaultTheme, ThemeProvider} from "@react-navigation/native";
@@ -6,15 +7,27 @@ import {useColorScheme} from "react-native";
 import { Provider } from "react-redux";
 import {store} from "@/store/store";
 import {useFonts} from "expo-font";
+import {useEffect} from "react";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
 
-  const [loaded] = useFonts({
-    Pretendard: require('@/assets/fonts/Pretendard-Regular.otf')
+  const [loaded, error] = useFonts({
+    Pretendard: require('@/assets/fonts/Pretendard-Light.ttf'),
   })
   const colorScheme = useColorScheme();
-//          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-//           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
+    return null;
+  }
+
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme={colorScheme!}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>

@@ -10,6 +10,7 @@ export const tamaguiConfig = createTamagui({
     ...defaultConfig,
     fonts: {
       body: pretendardFont,
+      heading: pretendardFont,
     },
     media: {
         sm: {minHeight: 0},
