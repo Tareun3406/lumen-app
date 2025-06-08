@@ -24,7 +24,7 @@ export default function JoanTokens(props: IActionProps) {
         </TouchableOpacity>
       </XStack>
       <XStack style={styleSheet.centeredContainer} >
-        <TokenToggleImg token={coin} size={80} />
+        <TokenToggleImg token={coin} size={116} />
         <TokenCounterButton tokenIndex={0} player={player} />
       </XStack>
     </XStack>
