@@ -104,11 +104,11 @@ export const characterImgSources: {
         nameTagRight: require("@/assets/images/name/joan-right.png")
     },
     "이제벨": {
-        portrait: require("@/assets/images/portraits/lin.png"),
+        portrait: require("@/assets/images/portraits/jezabel.png"),
         standingLeft: require("@/assets/images/standing/jezebel-left.png"),
         standingRight: require("@/assets/images/standing/jezebel-right.png"),
-        nameTagLeft: require("@/assets/images/name/lin-left.png"),
-        nameTagRight: require("@/assets/images/name/lin-right.png")
+        nameTagLeft: require("@/assets/images/name/jezebel-left.png"),
+        nameTagRight: require("@/assets/images/name/jezebel-right.png")
     },
 }
 
@@ -137,5 +137,5 @@ export const tokenImgSources: {
     "불씨": require("@/assets/images/tokens/ember.png"),
     "예지": require("@/assets/images/tokens/coin.png"),
     "디제스터 원": require("@/assets/images/tokens/disaster-one.png"),
-    "거미": require("@/assets/images/tokens/ember.png"),
+    "거미": require("@/assets/images/tokens/spider.png"),
 }
