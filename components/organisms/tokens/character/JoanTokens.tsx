@@ -17,15 +17,16 @@ export default function JoanTokens(props: IActionProps) {
   }, [coin.count, coin.toggleCount])
 
   return (
-    <XStack>
-      <TokenToggleImg token={coin} size={116} />
-      <TokenCounterButton tokenIndex={0} player={player} />
-      <XStack style={styleSheet.centeredContainer} >
+    <XStack gap={"$3"}>
+      <XStack>
         <TouchableOpacity onPress={() => changeToggle(1)}>
-          <TokenToggleImg token={disasterOne} size={80} />
+          <TokenToggleImg token={disasterOne} size={116} />
         </TouchableOpacity>
       </XStack>
-      
+      <XStack style={styleSheet.centeredContainer} >
+        <TokenToggleImg token={coin} size={80} />
+        <TokenCounterButton tokenIndex={0} player={player} />
+      </XStack>
     </XStack>
   )
 }

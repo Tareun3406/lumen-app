@@ -20,7 +20,6 @@ export default function Board() {
   const secondPlayer = useAppSelector(selectSecondPlayer);
   const { initializeBoard, goToPreviousDamage } = useGlobalAction();
   const router = useRouter()
-  const dispatch = useAppDispatch();
   useBoardPublisher();
 
   const [damageLogOpen, setDamageLogOpen] = useState(false);
@@ -40,9 +39,9 @@ export default function Board() {
           </XGroup>
           <CharacterStatus player={secondPlayer} />
         </XStack>
-        <XStack style={styleSheet.flexSpaceAround}>
-          <HpProgressBar player={firstPlayer} size={10}/>
-          <HpProgressBar player={secondPlayer} size={10}/>
+        <XStack style={styleSheet.flexSpaceAround} gap={"$10"}>
+          <HpProgressBar player={firstPlayer} size={11}/>
+          <HpProgressBar player={secondPlayer} size={11}/>
         </XStack>
         <XStack style={styleSheet.flexSpaceAround}>
           <DamageButtonPanel player={firstPlayer} />

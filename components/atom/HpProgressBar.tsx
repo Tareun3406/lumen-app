@@ -1,6 +1,6 @@
-import React, {useEffect, useMemo} from 'react'
-import {SizableText, SizeTokens, XStack} from 'tamagui'
-import { Progress, YStack } from 'tamagui'
+import React, {useEffect} from 'react'
+import {SizableText, SizeTokens, XStack, ZStack} from 'tamagui'
+import { Progress } from 'tamagui'
 import {PlayerState} from "@/store/slices/boardSlice";
 import styleSheet from "@/constants/styleSheet";
 
@@ -15,23 +15,19 @@ export function HpProgressBar(props: HpProgressBarProps) {
   const [progress, setProgress] = React.useState(0)
   const sizeProp = `$${props.size}` as SizeTokens
 
-  const hand = useMemo(() => {
-    return props.player.character.hp.hpHand.find(([hp]) => props.player.currentHp <= hp) ?? [5000, 6]
-  }, [props.player.currentHp, props.player.character.hp]);
-
   useEffect(() => {
     setProgress( (props.player.currentHp / props.player.character.hp.maxHp) * 100)
   }, [props.player.character.hp.maxHp, props.player.currentHp])
 
-  return (
-    <YStack theme={"blue"}>
-      <Progress size={sizeProp} value={progress}>
+  return ( // @ts-ignore
+    <ZStack theme={"blue"} height={"30px"} width={"40vw"} >
+      <Progress value={progress} size={sizeProp} width={"40vw"} // @ts-ignore
+                minWidth={0}>
         <Progress.Indicator animation="bouncy" />
       </Progress>
       <XStack style={styleSheet.flexSpaceAround}>
         <SizableText> {currentHp} / {maxHp}</SizableText>
-        <SizableText> Hand: {hand.at(1)}</SizableText>
       </XStack>
-    </YStack>
+    </ZStack>
   )
 }
