@@ -20,8 +20,8 @@
     "@react-navigation/native": "^7.0.14",
     "@reduxjs/toolkit": "^2.6.1",
     "@stomp/stompjs": "^7.0.1",
-    "@tamagui/config": "^1.125.22",
-    "@tamagui/lucide-icons": "^1.125.22",
+    "@tamagui/config": "^1.126.14",
+    "@tamagui/lucide-icons": "^1.126.14",
     "@types/lodash": "^4.17.16",
     "expo": "^53.0.11",
     "expo-blur": "~14.1.5",
@@ -47,7 +47,7 @@
     "react-native-web": "^0.20.0",
     "react-native-webview": "13.13.5",
     "react-redux": "^9.2.0",
-    "tamagui": "^1.125.22"
+    "tamagui": "^1.126.14"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
