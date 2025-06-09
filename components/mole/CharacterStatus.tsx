@@ -1,5 +1,5 @@
 import {PlayerState} from "@/store/slices/boardSlice";
-import {SizableText, XStack} from "tamagui";
+import {Paragraph, SizableText, XStack} from "tamagui";
 import CharacterSelectImage from "@/components/atom/CharacterSelectImage";
 import styleSheet from "@/constants/styleSheet";
 
@@ -16,9 +16,9 @@ export default function CharacterStatus(props: ICharacterStatusProps) {
         : [styleSheet.centeredContainer, styleSheet.flexSpaceAround,styleSheet.flexReverse]}
     >
       <CharacterSelectImage character={props.player.character} size={30} />
-      <SizableText size={"$5"}>
+      <Paragraph size={"$5"} fontWeight="800">
         {props.player.character.name}
-      </SizableText>
+      </Paragraph>
     </XStack>
   )
 }
