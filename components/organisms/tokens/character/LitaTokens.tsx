@@ -32,7 +32,7 @@ export default function LitaTokens(props: IActionProps) {
   }, [region, guardian, assassin, paladin, lumen])
   return (
     <XStack>
-      <TouchableOpacity onPress={() => changeToggle(0)}>
+      <TouchableOpacity onPress={() => changeToggle(0)} activeOpacity={1}>
         <TokenToggleImg token={ activatedToken } size={116} toggle={region.toggle}/>
       </TouchableOpacity>
 
@@ -43,7 +43,7 @@ export default function LitaTokens(props: IActionProps) {
       </YGroup>
 
       <XStack style={styleSheet.centeredContainer}>
-        <TouchableOpacity onPress={handleActiveLumen} disabled={player.currentHp > 1000}>
+        <TouchableOpacity onPress={handleActiveLumen} disabled={player.currentHp > 1000} activeOpacity={1}>
           <TokenToggleImg token={lumen} size={80} />
         </TouchableOpacity>
       </XStack>

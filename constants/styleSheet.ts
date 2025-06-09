@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styleSheet = StyleSheet.create({
   centeredContainer: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -26,6 +26,9 @@ const styleSheet = StyleSheet.create({
   backgroundShadow: {
     position: 'absolute', top: 0
   },
+  flexedContainer: {
+    flex: 1
+  }
 })
 
 export default styleSheet;

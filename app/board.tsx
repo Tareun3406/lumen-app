@@ -1,4 +1,4 @@
-import {Button, View, XGroup, XStack, YStack} from "tamagui";
+import {Button, isWeb, View, XGroup, XStack, YStack} from "tamagui";
 import {useAppSelector} from "@/hooks/storeHooks";
 import {selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
 import {HpProgressBar} from "@/components/atom/HpProgressBar";
@@ -34,7 +34,7 @@ export default function Board() {
 
 
   return (
-    <View style={styleSheet.centeredContainer}>
+    <View style={[styleSheet.centeredContainer, styleSheet.flexedContainer]}>
       <YStack gap={"$2"}>
         <XStack style={styleSheet.flexSpaceAround}>
           <CharacterStatus player={firstPlayer} />
@@ -52,7 +52,7 @@ export default function Board() {
           <HpProgressBar player={firstPlayer} size={11}/>
           <HpProgressBar player={secondPlayer} size={11}/>
         </XStack>
-        <XStack style={styleSheet.flexSpaceAround}>
+        <XStack style={styleSheet.flexSpaceAround} gap={isWeb ? 20 : 0}>
           <DamageButtonPanel player={firstPlayer} />
           <TimerPanel />
           <DamageButtonPanel player={secondPlayer} />

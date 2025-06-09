@@ -46,12 +46,9 @@ export default function CharacterSelectDialog(props: characterSelectDialogProps)
                     backgroundColor="$shadow6">
                     <DialogTitle style={{textAlign:"center", color:"white"}}>{props.player.isFirst ? "1P" : "2P"} 캐릭터 선택</DialogTitle>
                     <DialogDescription >
-                        <ScrollView     // @ts-ignore
-                            maxHeight={250}
+                        <ScrollView
+                            height={250}
                             width="100%"
-                            backgroundColor="transparent"
-                            padding="$4"
-                            borderRadius="$4"
                         >
                             <View style={styleSheet.flexWrap}>
                                 {characters.filter(character => (character.name !== "선택없음")).map((character, i) => (

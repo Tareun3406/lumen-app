@@ -23,9 +23,9 @@ export function HpProgressBar(props: HpProgressBarProps) {
     setProgress( (props.player.currentHp / props.player.character.hp.maxHp) * 100)
   }, [props.player.character.hp.maxHp, props.player.currentHp])
 
-  return ( // @ts-ignore
-    <ZStack theme={"blue"} height={"30px"} width={"40vw"} >
-      <Progress value={progress} size={sizeProp} width={"40vw"} // @ts-ignore
+  return (
+    <ZStack theme={"blue"} height={32} width={"45%"} >
+      <Progress value={progress} size={sizeProp} width={"100%"} // @ts-ignore
                 minWidth={0}>
         <Progress.Indicator animation="bouncy" />
       </Progress>

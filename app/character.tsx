@@ -1,4 +1,4 @@
-import {Button, YStack, XStack, View} from "tamagui";
+import {Button, YStack, XStack, View, isWeb} from "tamagui";
 import {Link} from "expo-router";
 import {useAppSelector} from "@/hooks/storeHooks";
 import {
@@ -32,15 +32,14 @@ export default function SelectCharacter() {
 
   // style={{justifyContent: "center", alignItems: "center"}}
   return (
-    <View style={[styleSheet.centeredContainer]}>
+    <View style={[styleSheet.centeredContainer, styleSheet.flexedContainer]}>
       <ImageBackground source={miscImgSources.background}
                        style={[styleSheet.centeredContainer, styleSheet.background]}
-          // imageStyle={styleSheet.imageContain}
       >
         <YStack>
           <XStack style={styleSheet.centeredContainer}>
             <CharacterPanel player={firstPlayer} onClick={() => setToNonSelectCharacter(firstPlayer)} />
-            <Link href={"/board"} asChild>
+            <Link href={"/board"} asChild={!isWeb}>
               <Button>선택 완료</Button>
             </Link>
             <CharacterPanel player={secondPlayer} onClick={() => setToNonSelectCharacter(secondPlayer)} />
