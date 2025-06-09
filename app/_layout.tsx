@@ -18,6 +18,14 @@ export default function RootLayout() {
   })
   const colorScheme = useColorScheme();
 
+  const theme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: 'rgb(250, 250, 250)'
+    }
+  }
+
   useEffect(() => {
     if (loaded || error) {
       SplashScreen.hideAsync();
@@ -30,7 +38,7 @@ export default function RootLayout() {
 
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme={colorScheme!}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : theme}>
         <Provider store={ store }>
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name={"index"} />

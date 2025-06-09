@@ -15,6 +15,10 @@ const styleSheet = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
   },
+  flexSpaceEvenly: {
+    justifyContent: "space-evenly",
+    alignItems: "center",
+  },
   background: {
     flex: 1,             // 부모 View의 공간을 전부 차지
     width: "100%",

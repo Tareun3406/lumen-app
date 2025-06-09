@@ -38,7 +38,7 @@ export default function Board() {
   return (
     <View style={[styleSheet.centeredContainer, styleSheet.flexedContainer]}>
       <YStack gap={"$2"}>
-        <XStack style={styleSheet.flexSpaceAround}>
+        <XStack style={styleSheet.flexSpaceEvenly}>
           <CharacterStatus player={firstPlayer} />
           <XGroup>
             <XGroup.Item><Button onPress={() => router.push('/character')} icon={User} /></XGroup.Item>

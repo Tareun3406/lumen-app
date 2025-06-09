@@ -9,9 +9,16 @@ export interface ICharacterStatusProps {
 
 export default function CharacterStatus(props: ICharacterStatusProps) {
   return (
-    <XStack style={props.player.isFirst ? styleSheet.centeredContainer : [styleSheet.centeredContainer, styleSheet.flexReverse]}>
+    <XStack
+      width={"25%"}
+      style={props.player.isFirst
+        ? [styleSheet.centeredContainer, styleSheet.flexSpaceAround]
+        : [styleSheet.centeredContainer, styleSheet.flexSpaceAround,styleSheet.flexReverse]}
+    >
       <CharacterSelectImage character={props.player.character} size={30} />
-      <SizableText size={"$5"}>{props.player.character.name}</SizableText>
+      <SizableText size={"$5"}>
+        {props.player.character.name}
+      </SizableText>
     </XStack>
   )
 }
