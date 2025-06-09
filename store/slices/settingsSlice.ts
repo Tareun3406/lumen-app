@@ -6,7 +6,7 @@ export interface ISettingsState {
 }
 
 const initialState: ISettingsState = {
-  flipPanel: true
+  flipPanel: false
 }
 
 export const settingsSlice = createSlice({

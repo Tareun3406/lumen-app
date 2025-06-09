@@ -1,4 +1,4 @@
-import {Button, isWeb, ToggleGroup, View, XGroup, XStack, YStack} from "tamagui";
+import {Button, isWeb, View, XGroup, XStack, YStack} from "tamagui";
 import {useAppDispatch, useAppSelector} from "@/hooks/storeHooks";
 import {selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
 import {HpProgressBar} from "@/components/atom/HpProgressBar";
