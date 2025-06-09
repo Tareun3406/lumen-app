@@ -9,13 +9,14 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
+      "bundleIdentifier": "kr.tareun.lumen",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "package": "kr.tareun.lumen",
+      "versionCode": 1,
+      "icon": "./assets/images/icon.png"
     },
     "web": {
       "bundler": "metro",
