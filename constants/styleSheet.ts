@@ -28,6 +28,9 @@ const styleSheet = StyleSheet.create({
   },
   flexedContainer: {
     flex: 1
+  },
+  flexReverse: {
+    flexDirection: "row-reverse"
   }
 })
 

@@ -5,12 +5,15 @@ import TokenToggleImg from "@/components/mole/TokenToggleImg";
 import styleSheet from "@/constants/styleSheet";
 import TokenCounterButton from "@/components/atom/TokenCounterButton";
 import {TouchableOpacity} from "react-native";
+import {useAppSelector} from "@/hooks/storeHooks";
+import {selectSettings} from "@/store/slices/settingsSlice";
 
 export default function TaoTokens(props: IActionProps) {
   const {setTokenToggleAsList} = usePlayerAction(props)
   const { player } = props;
   const { character } = player;
   const [ harmony, yin, yang ] = character.tokens
+  const { flipPanel } = useAppSelector(selectSettings);
 
   const onClickWhenHarmony = (index: number) => {
     if (!harmony.toggle) {
@@ -61,7 +64,7 @@ export default function TaoTokens(props: IActionProps) {
   }, [character.tokens, setTokenToggleAsList]);
 
   return (
-    <XStack>
+    <XStack style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
       <XStack style={styleSheet.centeredContainer} >
         <TouchableOpacity onPress={() => onClickWhenHarmony(1)} activeOpacity={1}>
           <TokenToggleImg token={yin} size={50}/>

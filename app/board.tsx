@@ -1,10 +1,10 @@
-import {Button, isWeb, View, XGroup, XStack, YStack} from "tamagui";
-import {useAppSelector} from "@/hooks/storeHooks";
+import {Button, isWeb, ToggleGroup, View, XGroup, XStack, YStack} from "tamagui";
+import {useAppDispatch, useAppSelector} from "@/hooks/storeHooks";
 import {selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
 import {HpProgressBar} from "@/components/atom/HpProgressBar";
 import DamageButtonPanel from "@/components/organisms/panel/DamageButtonPanel";
 import CharacterStatus from "@/components/mole/CharacterStatus";
-import {RotateCw, StepBack, TextSearch, User} from "@tamagui/lucide-icons";
+import {ChevronsRightLeft, RotateCw, StepBack, TextSearch, User} from "@tamagui/lucide-icons";
 import styleSheet from "@/constants/styleSheet";
 import TimerPanel from "@/components/organisms/panel/TimerPanel";
 import TokenPanel from "@/components/organisms/panel/TokenPanel";
@@ -15,10 +15,13 @@ import {useBoardPublisher} from "@/hooks/sideEffectHook";
 import DamageLogSheet from "@/components/organisms/sheet/DamageLogSheet";
 import {useState} from "react";
 import {useTimer} from "@/hooks/timerHooks";
+import {selectSettings, setFlipPanel} from "@/store/slices/settingsSlice";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
   const secondPlayer = useAppSelector(selectSecondPlayer);
+  const { flipPanel } = useAppSelector(selectSettings);
+  const dispatch = useAppDispatch();
   const { initializeBoard, goToPreviousDamage } = useGlobalAction();
   const { initGameTimerAction } = useTimer()
   const router = useRouter()
@@ -31,7 +34,6 @@ export default function Board() {
     initializeBoard()
     initGameTimerAction()
   }
-
 
   return (
     <View style={[styleSheet.centeredContainer, styleSheet.flexedContainer]}>
@@ -48,8 +50,11 @@ export default function Board() {
           </XGroup>
           <CharacterStatus player={secondPlayer} />
         </XStack>
-        <XStack style={styleSheet.flexSpaceAround} gap={"$10"}>
+        <XStack style={styleSheet.flexSpaceAround}>
           <HpProgressBar player={firstPlayer} size={11}/>
+          <Button size={"$2"} onPress={() => dispatch(setFlipPanel(!flipPanel))} theme={flipPanel ? "blue" : null}>
+            <ChevronsRightLeft />
+          </Button>
           <HpProgressBar player={secondPlayer} size={11}/>
         </XStack>
         <XStack style={styleSheet.flexSpaceAround} gap={isWeb ? 20 : 0}>

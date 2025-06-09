@@ -24,14 +24,14 @@ export function HpProgressBar(props: HpProgressBarProps) {
   }, [props.player.character.hp.maxHp, props.player.currentHp])
 
   return (
-    <ZStack theme={"blue"} height={32} width={"45%"} >
+    <ZStack theme={"blue"} height={32} width={"44%"} scaleX={props.player.isFirst?1:-1} >
       <Progress value={progress} size={sizeProp} width={"100%"} // @ts-ignore
                 minWidth={0}>
-        <Progress.Indicator animation="bouncy" />
+        <Progress.Indicator animation="bouncy"/>
       </Progress>
-      <XStack style={styleSheet.flexSpaceAround} >
+      <XStack style={props.player.isFirst?[styleSheet.flexSpaceAround]:[styleSheet.flexSpaceAround,styleSheet.flexReverse]} scaleX={props.player.isFirst?1:-1}>
         <SizableText color={"green"}  size={"$5"}> Hand: {hand.at(1)}</SizableText>
-        <SizableText color={"green"} size={"$5"}>{currentHp} / {maxHp}</SizableText>
+        <SizableText color={"green"} size={"$5"}>{currentHp}</SizableText>
       </XStack>
     </ZStack>
   )

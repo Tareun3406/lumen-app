@@ -6,12 +6,15 @@ import {TouchableOpacity} from "react-native";
 import styleSheet from "@/constants/styleSheet";
 import {tokenImgSources} from "@/constants/imageSource";
 import TokenToolTip from "@/components/atom/TokenToolTip";
+import {useAppSelector} from "@/hooks/storeHooks";
+import {selectSettings} from "@/store/slices/settingsSlice";
 
 export default function LitaTokens(props: IActionProps) {
   const { player } = props;
   const { character } = player;
   const [region ,guardian, assassin, paladin, lumen] = character.tokens
   const { changeToggle, setTokenToggleAsList } = usePlayerAction(props);
+  const { flipPanel } = useAppSelector(selectSettings);
 
   const handleToggle = (index: number) => {
     if (character.tokens[index].toggle) {
@@ -61,8 +64,8 @@ export default function LitaTokens(props: IActionProps) {
 
 
   return (
-    <XStack gap={5}>
-      <XStack>
+    <XStack gap={5} style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
+      <XStack style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
         <TouchableOpacity onPress={() => changeToggle(0)} activeOpacity={1}>
           <TokenToggleImg token={ activatedToken } size={116} toggle={region.toggle}/>
         </TouchableOpacity>
