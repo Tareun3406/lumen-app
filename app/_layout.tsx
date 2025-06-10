@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import {store} from "@/store/store";
 import {useFonts} from "expo-font";
 import {useEffect} from "react";
+import {StatusBar} from "expo-status-bar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -40,6 +41,7 @@ export default function RootLayout() {
     <TamaguiProvider config={tamaguiConfig} defaultTheme={colorScheme!}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : theme}>
         <Provider store={ store }>
+          <StatusBar hidden />
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name={"index"} />
             <Stack.Screen name={"character"} />
