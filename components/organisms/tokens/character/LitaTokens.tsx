@@ -66,9 +66,9 @@ export default function LitaTokens(props: IActionProps) {
   return (
     <XStack gap={5} style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
       <XStack style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
-        <TouchableOpacity onPress={() => changeToggle(0)} activeOpacity={1}>
+        {/*<TouchableOpacity onPress={() => changeToggle(0)} activeOpacity={1}>*/}
           <TokenToggleImg token={ activatedToken } size={116} toggle={region.toggle}/>
-        </TouchableOpacity>
+        {/*</TouchableOpacity>*/}
         <YGroup>
           <Button height={38} onPress={() => handleToggle(1)}
                   theme={(activatedToken === guardian || lumen.toggle) ? "yellow" : null}>가디언</Button>
