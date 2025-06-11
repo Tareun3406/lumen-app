@@ -3,7 +3,7 @@ import {useEffect} from "react";
 import {XStack} from "tamagui";
 import TokenToggleImg from "@/components/mole/TokenToggleImg";
 import styleSheet from "@/constants/styleSheet";
-import TokenCounterButton from "@/components/atom/TokenCounterButton";
+import TokenCounterButton from "@/components/mole/TokenCounterButton";
 import {TouchableOpacity} from "react-native";
 import {useAppSelector} from "@/hooks/storeHooks";
 import {selectSettings} from "@/store/slices/settingsSlice";

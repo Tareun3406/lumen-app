@@ -1,7 +1,7 @@
 import {IActionProps, usePlayerAction} from "@/hooks/actionHooks";
 import {XStack} from "tamagui";
 import TokenToggleImg from "@/components/mole/TokenToggleImg";
-import TokenCounterButton from "@/components/atom/TokenCounterButton";
+import TokenCounterButton from "@/components/mole/TokenCounterButton";
 import {useEffect} from "react";
 import styleSheet from "@/constants/styleSheet";
 import {TouchableOpacity} from "react-native";

@@ -1,5 +1,5 @@
 import {XStack} from "tamagui";
-import TokenCounterButtonMaxInfinity from "@/components/atom/TokenCounterButtonMaxInfinity";
+import TokenCounterButtonMaxInfinity from "@/components/mole/TokenCounterButtonMaxInfinity";
 import {IActionProps, usePlayerAction} from "@/hooks/actionHooks";
 import TokenToggleImg from "@/components/mole/TokenToggleImg";
 import {useEffect} from "react";

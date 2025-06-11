@@ -1,7 +1,7 @@
 import {Button, isWeb, View, XGroup, XStack, YStack} from "tamagui";
 import {useAppDispatch, useAppSelector} from "@/hooks/storeHooks";
 import {selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
-import {HpProgressBar} from "@/components/atom/HpProgressBar";
+import {HpProgressBar} from "@/components/mole/HpProgressBar";
 import DamageButtonPanel from "@/components/organisms/panel/DamageButtonPanel";
 import CharacterStatus from "@/components/mole/CharacterStatus";
 import {ChevronsRightLeft, RotateCw, StepBack, TextSearch, User} from "@tamagui/lucide-icons";
