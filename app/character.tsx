@@ -43,7 +43,7 @@ export default function SelectCharacter() {
         <YStack>
           <XStack style={styleSheet.centeredContainer}>
             <CharacterPanel player={firstPlayer} onClick={() => setToNonSelectCharacter(firstPlayer)} />
-            <Link href={"/board"} asChild={!isWeb}>
+            <Link href={"/board"} asChild>
               <Button theme={readyToStart ? "blue" : null} disabled={!readyToStart}>선택 완료</Button>
             </Link>
             <CharacterPanel player={secondPlayer} onClick={() => setToNonSelectCharacter(secondPlayer)} />
