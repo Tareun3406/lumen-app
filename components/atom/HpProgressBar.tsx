@@ -19,7 +19,7 @@ export function HpProgressBar(props: HpProgressBarProps) {
     return props.player.character.hp.hpHand.find(([hp]) => props.player.currentHp <= hp) ?? [5000, 6]
   }, [props.player.currentHp, props.player.character.hp]);
   useEffect(() => {
-    setProgress( (props.player.currentHp / props.player.character.hp.maxHp) * 100)
+    setProgress(Math.round((props.player.currentHp / props.player.character.hp.maxHp) * 100))
   }, [props.player.character.hp.maxHp, props.player.currentHp])
 
   return (
