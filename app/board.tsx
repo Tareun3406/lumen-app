@@ -17,6 +17,7 @@ import {useState} from "react";
 import {useTimer} from "@/hooks/timerHooks";
 import {selectSettings, setFlipPanel} from "@/store/slices/settingsSlice";
 import FpCounter from "@/components/mole/FpCounter";
+import ResetAlertDialog from "@/components/organisms/dialoge/ResetAlertDialog";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
@@ -28,6 +29,7 @@ export default function Board() {
   const router = useRouter()
   useBoardPublisher();
 
+  const [resetAlertOpen, setResetAlertOpen] = useState(false);
   const [damageLogOpen, setDamageLogOpen] = useState(false);
 
 
@@ -43,7 +45,7 @@ export default function Board() {
           <CharacterStatus player={firstPlayer} />
           <XGroup>
             <XGroup.Item><Button onPress={() => router.push('/character')} icon={User} /></XGroup.Item>
-            <XGroup.Item><Button onPress={initialize} icon={RotateCw}/></XGroup.Item>
+            <XGroup.Item><Button onPress={() => setResetAlertOpen(true)} icon={RotateCw}/></XGroup.Item>
             {/*<XGroup.Item><Button onPress={() => dispatch(setShowRemoteDialog(true))} icon={Cable}/></XGroup.Item>*/}
             {/*<XGroup.Item><Button onPress={() => {}} icon={Settings}/></XGroup.Item>*/}
             <XGroup.Item><Button onPress={() => {setDamageLogOpen(true)}} icon={TextSearch}/></XGroup.Item>
@@ -77,6 +79,7 @@ export default function Board() {
         </XStack>
       </YStack>
       <RemoteDialog />
+      <ResetAlertDialog open={resetAlertOpen} close={() => setResetAlertOpen(false)} action={initialize} />
       <DamageLogSheet open={damageLogOpen}  setOpen={(open) => setDamageLogOpen(open)}/>
     </View>
   )

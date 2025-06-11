@@ -10,7 +10,7 @@ import {ImageBackground, Image} from "react-native";
 import styleSheet from "@/constants/styleSheet";
 import {useBoardPublisher} from "@/hooks/sideEffectHook";
 import CharacterSelectDialog from "@/components/organisms/dialoge/CharacterSelectDialog";
-import React, {useState} from "react";
+import React, {useMemo, useState} from "react";
 import CharacterPanel from "@/components/organisms/panel/CharacterPanel";
 import {miscImgSources} from "@/constants/imageSource";
 
@@ -30,6 +30,10 @@ export default function SelectCharacter() {
     }
   }
 
+  const readyToStart = useMemo(() => {
+    return firstPlayer.character.name !== "선택없음" && secondPlayer.character.name !== "선택없음"
+  }, [firstPlayer.character, secondPlayer.character])
+
   // style={{justifyContent: "center", alignItems: "center"}}
   return (
     <View style={[styleSheet.centeredContainer, styleSheet.flexedContainer]}>
@@ -40,7 +44,7 @@ export default function SelectCharacter() {
           <XStack style={styleSheet.centeredContainer}>
             <CharacterPanel player={firstPlayer} onClick={() => setToNonSelectCharacter(firstPlayer)} />
             <Link href={"/board"} asChild={!isWeb}>
-              <Button>선택 완료</Button>
+              <Button theme={readyToStart ? "blue" : null} disabled={!readyToStart}>선택 완료</Button>
             </Link>
             <CharacterPanel player={secondPlayer} onClick={() => setToNonSelectCharacter(secondPlayer)} />
           </XStack>
