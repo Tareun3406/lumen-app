@@ -13,7 +13,8 @@ export const tamaguiConfig = createTamagui({
       heading: pretendardFont,
     },
     media: {
-        sm: {minHeight: 0},
+        xs: {minHeight: 0, maxWidth: 699},
+        sm: {minHeight: 0, minWidth: 700},  // todo sm, md, lg 각각 width 별 쿼리 설정
         md: {minHeight: 400},
         lg: {minHeight: 500}
     },

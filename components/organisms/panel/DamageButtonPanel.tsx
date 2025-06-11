@@ -10,12 +10,14 @@ export default function DamageButtonPanel(props: IActionProps) {
   const { flipPanel } = useAppSelector(selectSettings);
 
   const ResponsiveButton = styled(Button, {
+    $xs: { size: "$2.5", width: "$6" },
     $sm: { size: "$3", width: "$7" },
     $md: { size: "$4", width: "$8" },
     $lg: { size: "$5", width: "$9" },
   })
 
   const ResponsiveXStack = styled(XStack, {
+    $xs: { gap: "$2" },
     $sm: { gap: "$3" },
     $md: { gap: "$4" },
     $lg: { gap: "$5" },

@@ -1,5 +1,5 @@
 import {PlayerState} from "@/store/slices/boardSlice";
-import {Paragraph, SizableText, XStack} from "tamagui";
+import {Paragraph, XStack} from "tamagui";
 import CharacterSelectImage from "@/components/atom/CharacterSelectImage";
 import styleSheet from "@/constants/styleSheet";
 
@@ -10,7 +10,7 @@ export interface ICharacterStatusProps {
 export default function CharacterStatus(props: ICharacterStatusProps) {
   return (
     <XStack
-      width={"25%"}
+      width={"20%"}
       style={props.player.isFirst
         ? [styleSheet.centeredContainer, styleSheet.flexSpaceAround]
         : [styleSheet.centeredContainer, styleSheet.flexSpaceAround,styleSheet.flexReverse]}

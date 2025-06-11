@@ -16,13 +16,13 @@ export default function TimerPanel() {
 
   const gameTimerTheme = useMemo(() => {
     if (gameTimer.time <= 0) return "red" as ThemeName
-    if (gameTimer.toggle === true) return "green" as ThemeName
+    if (gameTimer.toggle === true) return "yellow" as ThemeName
     return "blue" as ThemeName
   }, [gameTimer.time, gameTimer.toggle])
 
   const readyTimerTheme = useMemo(() => {
     if (readyTimer.time <= 0) return "red" as ThemeName
-    if (readyTimer.toggle === true) return "green" as ThemeName
+    if (readyTimer.toggle === true) return "yellow" as ThemeName
     return "blue" as ThemeName
   }, [readyTimer.time, readyTimer.toggle])
 

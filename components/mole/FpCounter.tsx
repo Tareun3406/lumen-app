@@ -9,12 +9,14 @@ export default function FpCounter(props: IActionProps) {
   const fp = props.player.fp
 
   const ResponsiveButton = styled(Button, {
+    $xs: { size: "$1", width: "$1"},
     $sm: { size: "$2", width: "$2" },
     $md: { size: "$3", width: "$3" },
     $lg: { size: "$4", width: "$4.5" },
   })
 
   const ResponsiveCountButton = styled(Button, {
+    $xs: { size: "$1.5", width: "$2"},
     $sm: { size: "$3", width: "$4.5" }, // @ts-ignore
     $md: { size: "$4", width: "$5.5" }, // @ts-ignore
     $lg: { size: "$5", width: "$6.5" },
