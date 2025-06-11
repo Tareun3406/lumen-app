@@ -17,8 +17,8 @@ export default function DamageButtonPanel(props: IActionProps) {
 
   const ResponsiveXStack = styled(XStack, {
     $sm: { gap: "$3" },
-    $md: { gap: "$5" },
-    $lg: { gap: "$7" },
+    $md: { gap: "$4" },
+    $lg: { gap: "$5" },
   })
 
   const stackStyle = useMemo(() => {
@@ -29,7 +29,7 @@ export default function DamageButtonPanel(props: IActionProps) {
   }, [flipPanel])
 
   return (
-    <YStack style={styleSheet.centeredContainer}  $sm={{gap: "$2"}} $md={{gap: "$2"}} $lg={{gap: "$4"}}>
+    <YStack style={styleSheet.centeredContainer}  $sm={{gap: "$2"}} $md={{gap: "$2"}} $lg={{gap: "$3"}}>
       <ResponsiveXStack style={stackStyle}>
         <ResponsiveButton onPress={() => damageToHp(100)}>-100</ResponsiveButton>
         <ResponsiveButton onPress={() => damageToHp(200)}>-200</ResponsiveButton>

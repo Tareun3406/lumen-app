@@ -16,6 +16,7 @@ import DamageLogSheet from "@/components/organisms/sheet/DamageLogSheet";
 import {useState} from "react";
 import {useTimer} from "@/hooks/timerHooks";
 import {selectSettings, setFlipPanel} from "@/store/slices/settingsSlice";
+import FpCounter from "@/components/mole/FpCounter";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
@@ -57,11 +58,15 @@ export default function Board() {
           </Button>
           <HpProgressBar player={secondPlayer} size={11}/>
         </XStack>
+
         <XStack style={styleSheet.flexSpaceAround} gap={isWeb ? 20 : 0}>
           <DamageButtonPanel player={firstPlayer} />
+          <FpCounter player={firstPlayer} />
           <TimerPanel />
+          <FpCounter player={secondPlayer} />
           <DamageButtonPanel player={secondPlayer} />
         </XStack>
+
         <XStack style={styleSheet.flexSpaceAround}>
           <XStack width={"50%"} style={styleSheet.centeredContainer}>
             <TokenPanel player={firstPlayer} otherPlayer={secondPlayer} />
