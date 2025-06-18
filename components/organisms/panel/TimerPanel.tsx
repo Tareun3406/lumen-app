@@ -1,8 +1,9 @@
-import {Button, ThemeName, XStack, YStack} from "tamagui";
+import {Button, styled, ThemeName, XStack, YStack} from "tamagui";
 import {useAppSelector} from "@/hooks/storeHooks";
 import {selectTimer } from "@/store/slices/timerSlice";
 import {useTimer} from "@/hooks/timerHooks";
 import {useMemo} from "react";
+import {timerStyle} from "@/constants/mediaQueryStyle";
 
 export default function TimerPanel() {
   const { readyTimer, gameTimer } = useAppSelector(selectTimer);
@@ -26,15 +27,18 @@ export default function TimerPanel() {
     return "blue" as ThemeName
   }, [readyTimer.time, readyTimer.toggle])
 
+  const ResponsiveGameTimer = styled(Button, timerStyle.game)
+  const ResponsiveReadyTimer = styled(Button, timerStyle.ready)
+
   return (
     <XStack>
       <YStack gap={5}>
-        <Button onPress={toggleGameTimerAction} theme={gameTimerTheme}>
+        <ResponsiveGameTimer onPress={toggleGameTimerAction} theme={gameTimerTheme}>
             {gameTimerClock}
-        </Button>
-        <Button size="$6" onPress={toggleReadyTimerAction} theme={readyTimerTheme}>
+        </ResponsiveGameTimer>
+        <ResponsiveReadyTimer size="$6" onPress={toggleReadyTimerAction} theme={readyTimerTheme}>
           {readyTimer.time.toString()}
-        </Button>
+        </ResponsiveReadyTimer>
       </YStack>
     </XStack>
   )
