@@ -39,7 +39,7 @@ export default function RootLayout() {
 
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme={colorScheme!}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : theme}>
+      <ThemeProvider value={theme}>
         <Provider store={ store }>
           <StatusBar hidden />
           <Stack screenOptions={{ headerShown: false }}>
