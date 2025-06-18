@@ -22,7 +22,7 @@ export default function SelectCharacter() {
   const [firstSelectOpen, setFirstSelectOpen] = useState(false);
   const [secondSelectOpen, setSecondSelectOpen] = useState(false);
 
-  const setToNonSelectCharacter = (player: PlayerState) => {
+  const openSelectDialog = (player: PlayerState) => {
     if (player.isFirst) {
       setFirstSelectOpen(true);
     } else {
@@ -42,11 +42,11 @@ export default function SelectCharacter() {
       >
         <YStack>
           <XStack style={styleSheet.centeredContainer}>
-            <CharacterPanel player={firstPlayer} onClick={() => setToNonSelectCharacter(firstPlayer)} />
+            <CharacterPanel player={firstPlayer} onClick={() => openSelectDialog(firstPlayer)} />
             <Link href={"/board"} asChild>
               <Button theme={readyToStart ? "blue" : null} disabled={!readyToStart}>선택 완료</Button>
             </Link>
-            <CharacterPanel player={secondPlayer} onClick={() => setToNonSelectCharacter(secondPlayer)} />
+            <CharacterPanel player={secondPlayer} onClick={() => openSelectDialog(secondPlayer)} />
           </XStack>
         </YStack>
         <CharacterSelectDialog player={firstPlayer} open={firstSelectOpen} close={() => setFirstSelectOpen(false)} />

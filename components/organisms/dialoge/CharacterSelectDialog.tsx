@@ -13,6 +13,7 @@ import {
 import {PlayerState, setCharacterToFirst, setCharacterToSecond} from "@/store/slices/boardSlice";
 import React from "react";
 import {useAppDispatch} from "@/hooks/storeHooks";
+import {useGlobalAction} from "@/hooks/actionHooks";
 
 export interface characterSelectDialogProps {
     player: PlayerState,
@@ -23,14 +24,21 @@ export interface characterSelectDialogProps {
 export default function CharacterSelectDialog(props: characterSelectDialogProps) {
 
     const dispatch = useAppDispatch();
+    const { initializeBoard } = useGlobalAction();
+
 
     const onClickCharacter = (character: Character) => {
-        if (props.player.isFirst) {
-            dispatch(setCharacterToFirst(character));
+        if (props.player.character.name === character.name) {
             props.close();
             return;
         }
-        dispatch(setCharacterToSecond(character));
+
+        if (props.player.isFirst) {
+            dispatch(setCharacterToFirst(character));
+        } else {
+            dispatch(setCharacterToSecond(character));
+        }
+        initializeBoard();
         props.close();
     };
 
