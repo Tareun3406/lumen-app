@@ -4,24 +4,15 @@ import styleSheet from "@/constants/styleSheet";
 import {useMemo} from "react";
 import {useAppSelector} from "@/hooks/storeHooks";
 import {selectSettings} from "@/store/slices/settingsSlice";
+import { damageButtonPanelStyle } from "@/constants/mediaQueryStyle";
 
 export default function DamageButtonPanel(props: IActionProps) {
   const { damageToHp, healToHp } = usePlayerAction(props);
   const { flipPanel } = useAppSelector(selectSettings);
 
-  const ResponsiveButton = styled(Button, {
-    $xs: { size: "$2.5", width: "$6" },
-    $sm: { size: "$3", width: "$7" },
-    $md: { size: "$4", width: "$8" },
-    $lg: { size: "$5", width: "$9" },
-  })
-
-  const ResponsiveXStack = styled(XStack, {
-    $xs: { gap: "$2" },
-    $sm: { gap: "$3" },
-    $md: { gap: "$4" },
-    $lg: { gap: "$5" },
-  })
+  const ResponsiveButton = styled(Button, damageButtonPanelStyle.button);
+  const ResponsiveXStack = styled(XStack, damageButtonPanelStyle.xStack);
+  const ResponsiveYStack = styled(YStack, damageButtonPanelStyle.yStack);
 
   const stackStyle = useMemo(() => {
     if (flipPanel && !props.player.isFirst) {
@@ -31,7 +22,7 @@ export default function DamageButtonPanel(props: IActionProps) {
   }, [flipPanel])
 
   return (
-    <YStack style={styleSheet.centeredContainer}  $sm={{gap: "$2"}} $md={{gap: "$2"}} $lg={{gap: "$3"}}>
+    <ResponsiveYStack style={styleSheet.centeredContainer}>
       <ResponsiveXStack style={stackStyle}>
         <ResponsiveButton onPress={() => damageToHp(100)}>-100</ResponsiveButton>
         <ResponsiveButton onPress={() => damageToHp(200)}>-200</ResponsiveButton>
@@ -47,6 +38,6 @@ export default function DamageButtonPanel(props: IActionProps) {
         <ResponsiveButton onPress={() => damageToHp(1000)} theme={"red"}>-1000</ResponsiveButton>
         <ResponsiveButton onPress={() => healToHp(100)} theme={"green"}>+100</ResponsiveButton>
       </ResponsiveXStack>
-    </YStack>
+    </ResponsiveYStack>
   )
 }

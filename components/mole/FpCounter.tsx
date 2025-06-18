@@ -1,40 +1,31 @@
-import {Button, GetThemeValueForKey, styled, YStack} from "tamagui";
+import {Button, styled, YStack} from "tamagui";
 import styleSheet from "@/constants/styleSheet";
 import {IActionProps, usePlayerAction} from "@/hooks/actionHooks";
 import {useMemo} from "react";
+import {fpCounterStyle} from "@/constants/mediaQueryStyle";
 
 
 export default function FpCounter(props: IActionProps) {
   const { increaseFp, decreaseFp, resetFp} = usePlayerAction(props);
   const fp = props.player.fp
 
-  const ResponsiveButton = styled(Button, {
-    $xs: { size: "$1", width: "$1"},
-    $sm: { size: "$2", width: "$2" },
-    $md: { size: "$3", width: "$3" },
-    $lg: { size: "$4", width: "$4.5" },
-  })
+  const ResponsiveButton = styled(Button, fpCounterStyle.stepperButton)
 
-  const ResponsiveCountButton = styled(Button, {
-    $xs: { size: "$1.5", width: "$2"},
-    $sm: { size: "$3", width: "$4.5" }, // @ts-ignore
-    $md: { size: "$4", width: "$5.5" }, // @ts-ignore
-    $lg: { size: "$5", width: "$6.5" },
-  })
+  const ResponsiveCountButton = styled(Button, fpCounterStyle.countButton)
 
   const countTheme = useMemo(() => {
     if (fp < 0) {
       return "red"
     }
     if (fp > 0) {
-      return "blue"
+      return "green"
     }
     return null
   }, [fp])
 
   return (
     <YStack style={styleSheet.centeredContainer}>
-      <ResponsiveButton onPress={() => increaseFp(1)} theme={"blue"} // @ts-ignore
+      <ResponsiveButton onPress={() => increaseFp(1)} theme={"green"} // @ts-ignore
                         borderRadius={"$20"}>+</ResponsiveButton>
 
       <ResponsiveCountButton onPress={() => resetFp()} theme={countTheme}>
