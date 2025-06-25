@@ -3,6 +3,7 @@ import styleSheet from "@/constants/styleSheet";
 import {IActionProps, usePlayerAction} from "@/hooks/actionHooks";
 import {useMemo} from "react";
 import {fpCounterStyle} from "@/constants/mediaQueryStyle";
+import {Minus, Plus} from "@tamagui/lucide-icons";
 
 
 export default function FpCounter(props: IActionProps) {
@@ -13,27 +14,38 @@ export default function FpCounter(props: IActionProps) {
 
   const ResponsiveCountButton = styled(Button, fpCounterStyle.countButton)
 
-  const countTheme = useMemo(() => {
+  const countBackgroundColor = useMemo(() => {
     if (fp < 0) {
-      return "red"
+      return "$red9"
     }
     if (fp > 0) {
-      return "green"
+      return "$green9"
     }
-    return null
+    return "$black9"
   }, [fp])
 
   return (
     <YStack style={styleSheet.centeredContainer}>
-      <ResponsiveButton onPress={() => increaseFp(1)} theme={"green"} // @ts-ignore
-                        borderRadius={"$20"}>+</ResponsiveButton>
+      <ResponsiveButton onPress={() => increaseFp(1)} // @ts-ignore
+                        backgroundColor={"transparent"}
+                        size={"$3"}
+                        borderRadius={"$20"}
+      >
+        <Plus/>
+      </ResponsiveButton>
 
-      <ResponsiveCountButton onPress={() => resetFp()} theme={countTheme}>
+      <ResponsiveCountButton onPress={() => resetFp()}// @ts-ignore
+                             backgroundColor={countBackgroundColor}
+                             color={"white"}
+                             fontSize={"$6"}
+      >
         {fp.toString()}
       </ResponsiveCountButton>
 
-      <ResponsiveButton onPress={() => decreaseFp(1)} theme={"red"} // @ts-ignore
-                        borderRadius={"$20"}>-</ResponsiveButton>
+      <ResponsiveButton onPress={() => decreaseFp(1)} // @ts-ignore
+                        backgroundColor={"transparent"}
+                        size={"$3"}
+                        borderRadius={"$20"}><Minus/></ResponsiveButton>
     </YStack>
   )
 }

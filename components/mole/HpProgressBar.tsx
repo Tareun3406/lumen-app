@@ -34,8 +34,8 @@ export function HpProgressBar(props: HpProgressBarProps) {
         marginTop={"$1.5"}
         style={props.player.isFirst?[styleSheet.flexSpaceAround]:[styleSheet.flexSpaceAround, styleSheet.flexReverse]} scaleX={props.player.isFirst?1:-1}
       >
-        <SizableText color={"$blue8"}  size={"$5"}>Hand: {hand.at(1)}</SizableText>
-        <SizableText color={"$blue8"} size={"$5"}>{currentHp}</SizableText>
+        <SizableText color={"$red8"} size={"$6"}>Hand: {hand.at(1)}</SizableText>
+        <SizableText color={"$red8"} size={"$6"}>{currentHp}</SizableText>
       </XStack>
     </ZStack>
   )

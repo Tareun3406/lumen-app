@@ -2,7 +2,7 @@ import {Stack} from "expo-router";
 import * as SplashScreen from 'expo-splash-screen';
 import {TamaguiProvider} from "tamagui";
 import tamaguiConfig from "@/tamagui.config";
-import {DarkTheme, DefaultTheme, ThemeProvider} from "@react-navigation/native";
+import {DefaultTheme, ThemeProvider} from "@react-navigation/native";
 import {useColorScheme} from "react-native";
 import { Provider } from "react-redux";
 import {store} from "@/store/store";

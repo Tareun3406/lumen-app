@@ -31,12 +31,12 @@ export const damageButtonPanelStyle = {
 
 export const fpCounterStyle = {
   stepperButton: {
-    $xs: { size: "$1.5", width: "$1.5"},
-    $sm: { size: "$2", width: "$2" },
-    $md: { size: "$3", width: "$3" },
-    $mdmw: { size: "$2", width: "$2" },
-    $mdsw: { size: "$2", width: "$2" },
-    $lg: { size: "$4", width: "$4.5" },
+    // $xs: { size: "$1.5", width: "$1.5"},
+    // $sm: { size: "$2", width: "$2" },
+    // $md: { size: "$3", width: "$3" },
+    // $mdmw: { size: "$2", width: "$2" },
+    // $mdsw: { size: "$2", width: "$2" },
+    // $lg: { size: "$4", width: "$4.5" },
   } as WithMediaProps<ComponentProps<typeof Button>>,
 
   countButton: {
