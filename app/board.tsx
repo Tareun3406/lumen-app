@@ -1,10 +1,10 @@
 import {Button, isWeb, View, XGroup, XStack, YStack} from "tamagui";
-import {useAppDispatch, useAppSelector} from "@/hooks/storeHooks";
+import {useAppSelector} from "@/hooks/storeHooks";
 import {selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
 import {HpProgressBar} from "@/components/mole/HpProgressBar";
 import DamageButtonPanel from "@/components/organisms/panel/DamageButtonPanel";
 import CharacterStatus from "@/components/mole/CharacterStatus";
-import {ChevronsRightLeft, RotateCw, StepBack, TextSearch, User} from "@tamagui/lucide-icons";
+import {RotateCw, StepBack, TextSearch, User} from "@tamagui/lucide-icons";
 import styleSheet from "@/constants/styleSheet";
 import TimerPanel from "@/components/organisms/panel/TimerPanel";
 import TokenPanel from "@/components/organisms/panel/TokenPanel";
@@ -15,15 +15,13 @@ import {useBoardPublisher} from "@/hooks/sideEffectHook";
 import DamageLogSheet from "@/components/organisms/sheet/DamageLogSheet";
 import {useState} from "react";
 import {useTimer} from "@/hooks/timerHooks";
-import {selectSettings, setFlipPanel} from "@/store/slices/settingsSlice";
 import FpCounter from "@/components/mole/FpCounter";
 import ResetAlertDialog from "@/components/organisms/dialoge/ResetAlertDialog";
+import {GameTimer} from "@/components/mole/GameTimer";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
   const secondPlayer = useAppSelector(selectSecondPlayer);
-  const { flipPanel } = useAppSelector(selectSettings);
-  const dispatch = useAppDispatch();
   const { initializeBoard, goToPreviousDamage } = useGlobalAction();
   const { initGameTimerAction } = useTimer()
   const router = useRouter()
@@ -55,9 +53,7 @@ export default function Board() {
         </XStack>
         <XStack style={styleSheet.flexSpaceAround}>
           <HpProgressBar player={firstPlayer} size={11}/>
-          <Button size={"$2"} onPress={() => dispatch(setFlipPanel(!flipPanel))} theme={flipPanel ? "blue" : null}>
-            <ChevronsRightLeft />
-          </Button>
+          <GameTimer />
           <HpProgressBar player={secondPlayer} size={11}/>
         </XStack>
 

@@ -56,8 +56,9 @@ export const timerStyle = {
     $mdsw: { size: "$2", width: "$6", height: "$4" },
   } as WithMediaProps<ComponentProps<typeof Button>>,
   ready: {
-    $md: { size: "$5", width: "$7", height: "$5" },
-    $mdmw: { size: "$4", width: "$6", height: "$5" },
-    $mdsw: { size: "$2", width: "$6", height: "$4" },
+    $sm: { size: "$4", width: "$7", height: "$10" },
+    $md: { size: "$5", width: "$7", height: "$10" },
+    $mdmw: { size: "$4", width: "$6", height: "$10" },
+    $mdsw: { size: "$2", width: "$6", height: "$10" },
   } as WithMediaProps<ComponentProps<typeof Button>>,
 }

@@ -13,7 +13,7 @@ export default function TokenCounterButton(props: ITokenCounterButtonProps) {
     return (
         <YStack style={styleSheet.centeredContainer}>
             <Button size={"$3"} onPress={() => addToken(props.tokenIndex)}>+</Button>
-            <Button size={"$3"} onPress={() => setTokenCount(props.tokenIndex, 0)}>
+            <Button size={"$3"} onPress={() => setTokenCount(props.tokenIndex, 0)} fontWeight="700">
                 {token.count?.toString()}/{token.maxCount?.toString()}
             </Button>
             <Button size={"$3"}  onPress={() => removeToken(props.tokenIndex)}>-</Button>

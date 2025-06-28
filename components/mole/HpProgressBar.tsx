@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo} from 'react'
-import {SizableText, SizeTokens, XStack, ZStack} from 'tamagui'
+import {Paragraph, SizableText, SizeTokens, XStack, ZStack} from 'tamagui'
 import { Progress } from 'tamagui'
 import {PlayerState} from "@/store/slices/boardSlice";
 import styleSheet from "@/constants/styleSheet";
@@ -23,7 +23,7 @@ export function HpProgressBar(props: HpProgressBarProps) {
   }, [props.player.character.hp.maxHp, props.player.currentHp])
 
   return (
-    <ZStack theme={"green"} height={32} width={"44%"} scaleX={props.player.isFirst?1:-1} >
+    <ZStack theme={"green"} height={32} width={"42%"} scaleX={props.player.isFirst?1:-1} >
       <Progress value={progress} size={sizeProp} width={"100%"} // @ts-ignore
                 backgroundColor={"$green4"}
                 minWidth={0}>
@@ -34,8 +34,8 @@ export function HpProgressBar(props: HpProgressBarProps) {
         marginTop={"$1.5"}
         style={props.player.isFirst?[styleSheet.flexSpaceAround]:[styleSheet.flexSpaceAround, styleSheet.flexReverse]} scaleX={props.player.isFirst?1:-1}
       >
-        <SizableText color={"$red8"} size={"$6"}>Hand: {hand.at(1)}</SizableText>
-        <SizableText color={"$red8"} size={"$6"}>{currentHp}</SizableText>
+        <Paragraph size={"$5"} fontWeight="800" color={"$red8"}> Hand: {hand.at(1)}</Paragraph>
+        <Paragraph size={"$5"} fontWeight="800" color={"$red8"}>{currentHp}</Paragraph>
       </XStack>
     </ZStack>
   )
