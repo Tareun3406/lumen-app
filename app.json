@@ -2,7 +2,7 @@
   "expo": {
     "name": "lumen-app",
     "slug": "lumen-app",
-    "version": "2.0.6",
+    "version": "2.0.7",
     "orientation": "landscape",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -10,12 +10,12 @@
     "newArchEnabled": true,
     "ios": {
       "bundleIdentifier": "kr.tareun.lumen",
-      "buildNumber": "2.0.6",
+      "buildNumber": "2.0.7",
       "supportsTablet": true
     },
     "android": {
       "package": "kr.tareun.lumen",
-      "versionCode": 6,
+      "versionCode": 7,
       "icon": "./assets/images/icon.png",
       "androidNavigationBar": {
         "backgroundColor": "#00000000",
