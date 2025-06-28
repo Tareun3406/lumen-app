@@ -16,7 +16,11 @@
     "android": {
       "package": "kr.tareun.lumen",
       "versionCode": 6,
-      "icon": "./assets/images/icon.png"
+      "icon": "./assets/images/icon.png",
+      "androidNavigationBar": {
+        "backgroundColor": "#00000000",
+        "visible": "sticky-immersive"
+      }
     },
     "web": {
       "bundler": "metro",
