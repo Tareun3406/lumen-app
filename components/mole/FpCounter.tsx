@@ -38,6 +38,7 @@ export default function FpCounter(props: IActionProps) {
                              backgroundColor={countBackgroundColor}
                              color={"white"}
                              fontSize={"$6"}
+                             fontWeight={"700"}
       >
         {fp.toString()}
       </ResponsiveCountButton>

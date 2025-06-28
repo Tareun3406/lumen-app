@@ -12,11 +12,15 @@ export default function TokenCounterButtonMaxInfinity(props: ITokenCounterButton
 
     return (
         <YStack style={styleSheet.centeredContainer}>
-            <Button size={"$3"} onPress={() => addToken(props.tokenIndex)}>+</Button>
+            <Button size={"$3"} chromeless={true} //@ts-ignore
+                    borderRadius={"$20"}
+                    onPress={() => addToken(props.tokenIndex)}>+</Button>
             <Button size={"$3"} onPress={() => setTokenCount(props.tokenIndex, 0)} fontWeight="700">
                 {token.count?.toString()}
             </Button>
-            <Button size={"$3"}  onPress={() => removeToken(props.tokenIndex)}>-</Button>
+            <Button size={"$3"} chromeless={true} //@ts-ignore
+                    borderRadius={"$20"}
+                    onPress={() => removeToken(props.tokenIndex)}>-</Button>
         </YStack>
     )
 }
