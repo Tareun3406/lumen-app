@@ -9,6 +9,8 @@ import {store} from "@/store/store";
 import {useFonts} from "expo-font";
 import {useEffect} from "react";
 import {StatusBar} from "expo-status-bar";
+import * as NavigationBar from 'expo-navigation-bar';
+import { Platform } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,6 +34,17 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded, error]);
+
+  useEffect(() => {
+    // Android 네비게이션 바 설정
+    const setupNavigationBar = async () => {
+      if (Platform.OS === 'android') {
+        await NavigationBar.setBackgroundColorAsync('#00000000');
+        await NavigationBar.setVisibilityAsync('hidden');
+      }
+    };
+    setupNavigationBar();
+  }, []);
 
   if (!loaded && !error) {
     return null;
