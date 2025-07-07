@@ -1,8 +1,9 @@
 import {PlayerState} from "@/store/slices/boardSlice";
-import {Image, YStack} from "tamagui";
+import {Image, styled, YStack} from "tamagui";
 import {TouchableOpacity} from "react-native";
 import React from "react";
 import {characterImgSources} from "@/constants/imageSource";
+import {characterStandingPanelStyle} from "@/constants/mediaQueryStyle";
 
 export interface ICharacterPanelProps {
     player: PlayerState;
@@ -13,23 +14,34 @@ export default function CharacterPanel(props: ICharacterPanelProps) {
     const { isFirst } =  player;
     const { character } = player
 
+    const ResponsiveStandingContainer = styled(YStack, characterStandingPanelStyle.standingImageContainer)
+    const ResponsiveNameTagContainer = styled(YStack, characterStandingPanelStyle.nameTagImageContainer)
+
     return (
         <YStack>
             <TouchableOpacity onPress={ props.onClick }>
-                <Image
-                    objectFit={"contain"}
-                    height={256}
-                    width={256}
-                    source={
-                        isFirst
-                            ? characterImgSources[character.name].standingLeft
-                            : characterImgSources[character.name].standingRight
-                    } />
-                <Image objectFit={"contain"} height={60} width={256} source={
-                    isFirst
-                        ? characterImgSources[character.name].nameTagLeft
-                        : characterImgSources[character.name].nameTagRight
-                }/>
+                <ResponsiveStandingContainer>
+                    <Image
+                        objectFit={"contain"}
+                        width="100%"
+                        height="100%"
+                        source={
+                            isFirst
+                                ? characterImgSources[character.name].standingLeft
+                                : characterImgSources[character.name].standingRight
+                        } />
+                </ResponsiveStandingContainer>
+                <ResponsiveNameTagContainer>
+                    <Image 
+                        objectFit={"contain"}
+                        width="100%"
+                        height="100%"
+                        source={
+                            isFirst
+                                ? characterImgSources[character.name].nameTagLeft
+                                : characterImgSources[character.name].nameTagRight
+                        }/>
+                </ResponsiveNameTagContainer>
             </TouchableOpacity>
         </YStack>
     )

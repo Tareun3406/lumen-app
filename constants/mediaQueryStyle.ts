@@ -1,6 +1,6 @@
 import {WithMediaProps} from "@tamagui/core";
 import {ComponentProps} from "react";
-import {Button, XStack, YStack} from "tamagui";
+import {Button, XStack, YStack, Image} from "tamagui";
 
 export const damageButtonPanelStyle = {
   button: {
@@ -61,4 +61,23 @@ export const timerStyle = {
     $mdmw: { size: "$4", width: "$6", height: "$10" },
     $mdsw: { size: "$2", width: "$6", height: "$10" },
   } as WithMediaProps<ComponentProps<typeof Button>>,
+}
+
+export const characterStandingPanelStyle = {
+  standingImageContainer: {
+    $xs: { width: 192, height: 192 },
+    $sm: { width: 256, height: 256 },
+    $md: { width: 256, height: 256 },
+    $mdmw: { width: 192, height: 192 },
+    $mdsw: { width: 192, height: 192 },
+    $lg: { width: 256, height: 256 },
+  } as WithMediaProps<ComponentProps<typeof YStack>>,
+  nameTagImageContainer: {
+    $xs: { width: 192, height: 45 },
+    $sm: { width: 256, height: 60 },
+    $md: { width: 256, height: 60 },
+    $mdmw: { width: 192, height: 45 },
+    $mdsw: { width: 192, height: 45 },
+    $lg: { width: 256, height: 60 },
+  } as WithMediaProps<ComponentProps<typeof YStack>>,
 }
