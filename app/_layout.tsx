@@ -25,7 +25,6 @@ export default function RootLayout() {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      background: 'rgb(250, 250, 250)'
     }
   }
 
