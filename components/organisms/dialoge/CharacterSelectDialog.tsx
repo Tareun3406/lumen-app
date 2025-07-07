@@ -8,7 +8,7 @@ import {
     DialogDescription,
     DialogPortal,
     DialogTitle, ScrollView,
-    View,
+    View, XStack,
 } from "tamagui";
 import {PlayerState, setCharacterToFirst, setCharacterToSecond} from "@/store/slices/boardSlice";
 import React from "react";
@@ -65,7 +65,6 @@ export default function CharacterSelectDialog(props: characterSelectDialogProps)
                                     </TouchableOpacity>
                                 ))}
                             </View>
-
                         </ScrollView>
                     </DialogDescription>
                 </DialogContent>

@@ -1,10 +1,10 @@
 import {WithMediaProps} from "@tamagui/core";
 import {ComponentProps} from "react";
-import {Button, XStack, YStack, Image} from "tamagui";
+import {Button, XStack, YStack} from "tamagui";
 
 export const damageButtonPanelStyle = {
   button: {
-    $xs: { size: "$2.5", width: "$6" },
+    $xs: { size: "$2", width: "$6", height: "$2.5" },
     $sm: { size: "$3", width: "$7" },
     $md: { size: "$3", width: "$7", height: "$4"},
     $mdmw: { size: "$3", width: "$6", height: "$4" },
@@ -16,7 +16,8 @@ export const damageButtonPanelStyle = {
     $xs: {gap: "$2"},
     $sm: {gap: "$2"},
     $md: {gap: "$3"} ,
-    $mdsw: {gap: "$3"} ,
+    $mdsw: {gap: "$2"} ,
+    $mdmw: {gap: "$2"},
     $lg: {gap: "$3"}
   } as WithMediaProps<ComponentProps<typeof YStack>>,
 
@@ -24,7 +25,8 @@ export const damageButtonPanelStyle = {
     $xs: { gap: "$2" },
     $sm: { gap: "$2" },
     $md: { gap: "$2" },
-    $mdsw: { gap: "$2" },
+    $mdsw: { gap: "$1" },
+    $mdmw: { gap: "$1.5" },
     $lg: { gap: "$3" },
   } as WithMediaProps<ComponentProps<typeof XStack>>,
 }
@@ -40,11 +42,11 @@ export const fpCounterStyle = {
   } as WithMediaProps<ComponentProps<typeof Button>>,
 
   countButton: {
-    $xs: { size: "$2", width: "$2.5"},
+    $xs: { size: "$2", width: "$4"},
     $sm: { size: "$3", width: "$5" },
     $md: { size: "$4", width: "$5" },
-    $mdmw: { size: "$3", width: "$3" },
-    $mdsw: { size: "$3", width: "$3" },
+    $mdmw: { size: "$2", width: "$4" },
+    $mdsw: { size: "$2", width: "$4" },
     $lg: { size: "$5", width: "$7" },
   } as WithMediaProps<ComponentProps<typeof Button>>,
 }
@@ -56,9 +58,10 @@ export const timerStyle = {
     $mdsw: { size: "$2", width: "$6", height: "$4" },
   } as WithMediaProps<ComponentProps<typeof Button>>,
   ready: {
+    $xs: { size: "$4", width: "$6", height: "$10" },
     $sm: { size: "$4", width: "$7", height: "$10" },
     $md: { size: "$5", width: "$7", height: "$10" },
-    $mdmw: { size: "$4", width: "$6", height: "$10" },
+    $mdmw: { size: "$3", width: "$6", height: "$10" },
     $mdsw: { size: "$2", width: "$6", height: "$10" },
   } as WithMediaProps<ComponentProps<typeof Button>>,
 }
@@ -68,16 +71,16 @@ export const characterStandingPanelStyle = {
     $xs: { width: 192, height: 192 },
     $sm: { width: 256, height: 256 },
     $md: { width: 256, height: 256 },
-    $mdmw: { width: 192, height: 192 },
+    $mdmw: { width: 224, height: 224 },
     $mdsw: { width: 192, height: 192 },
     $lg: { width: 256, height: 256 },
   } as WithMediaProps<ComponentProps<typeof YStack>>,
   nameTagImageContainer: {
-    $xs: { width: 192, height: 45 },
-    $sm: { width: 256, height: 60 },
-    $md: { width: 256, height: 60 },
-    $mdmw: { width: 192, height: 45 },
-    $mdsw: { width: 192, height: 45 },
-    $lg: { width: 256, height: 60 },
+    $xs: { width: 192, height: 65 },
+    $sm: { width: 256, height: 90 },
+    $md: { width: 256, height: 90 },
+    $mdmw: { width: 224, height: 80 },
+    $mdsw: { width: 192, height: 65 },
+    $lg: { width: 256, height: 90 },
   } as WithMediaProps<ComponentProps<typeof YStack>>,
 }
