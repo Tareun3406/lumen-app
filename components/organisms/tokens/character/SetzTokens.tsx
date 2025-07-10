@@ -3,6 +3,7 @@ import {selectSettings} from "@/store/slices/settingsSlice";
 import {useAppSelector} from "@/hooks/storeHooks";
 import {Button, Image, View, XStack, YGroup} from "tamagui";
 import {useMemo} from "react";
+import {tokenImgSources} from "@/constants/imageSource";
 
 export default function SetzTokens(props: IActionProps) {
   const { player } = props;
@@ -26,7 +27,7 @@ export default function SetzTokens(props: IActionProps) {
   return (
     <XStack>
       <Image
-        source={token.img}
+        source={tokenImgSources[token.name]}
         objectFit={"contain"}
         height={116}
         width={116}
