@@ -1,18 +1,17 @@
 import React, {useEffect, useMemo} from 'react'
-import {Paragraph, SizableText, SizeTokens, XStack, ZStack} from 'tamagui'
+import {Paragraph, styled, XStack, ZStack} from 'tamagui'
 import { Progress } from 'tamagui'
 import {PlayerState} from "@/store/slices/boardSlice";
 import styleSheet from "@/constants/styleSheet";
+import {hpStatusStyle} from "@/constants/mediaQueryStyle";
 
 
 interface HpProgressBarProps {
   player: PlayerState,
-  size: number,
 }
 export function HpProgressBar(props: HpProgressBarProps) {
   const currentHp = props.player.currentHp
   const [progress, setProgress] = React.useState(0)
-  const sizeProp = `$${props.size}` as SizeTokens
 
 
   const hand = useMemo(() => {
@@ -22,21 +21,25 @@ export function HpProgressBar(props: HpProgressBarProps) {
     setProgress(Math.round((props.player.currentHp / props.player.character.hp.maxHp) * 100))
   }, [props.player.character.hp.maxHp, props.player.currentHp])
 
+  const ResponsiveZStack = styled(ZStack, hpStatusStyle.zStack)
+  const ResponsiveParagraph = styled(Paragraph, hpStatusStyle.paragraph)
+  const ResponsiveProgress = styled(Progress, hpStatusStyle.progress)
+
   return (
-    <ZStack theme={"green"} height={32} width={"42%"} scaleX={props.player.isFirst?1:-1} >
-      <Progress value={progress} size={sizeProp} width={"100%"} // @ts-ignore
+    <ResponsiveZStack theme={"green"} height={32} width={"42%"} scaleX={props.player.isFirst?1:-1} >
+      <ResponsiveProgress value={progress}  // @ts-ignore
                 backgroundColor={"$green4"}
                 minWidth={0}>
         <Progress.Indicator animation="bouncy" // @ts-ignore
                             backgroundColor={'hsl(154, 53.5%, 21.25%)'}/>
-      </Progress>
+      </ResponsiveProgress>
       <XStack // @ts-ignore
         marginTop={"$1.5"}
         style={props.player.isFirst?[styleSheet.flexSpaceAround]:[styleSheet.flexSpaceAround, styleSheet.flexReverse]} scaleX={props.player.isFirst?1:-1}
       >
-        <Paragraph size={"$5"} fontWeight="800" color={"$red8"}> Hand: {hand.at(1)}</Paragraph>
-        <Paragraph size={"$5"} fontWeight="800" color={"$red8"}>{currentHp}</Paragraph>
+        <ResponsiveParagraph fontWeight="800" color={"$red8"}> Hand: {hand.at(1)}</ResponsiveParagraph>
+        <ResponsiveParagraph fontWeight="800" color={"$red8"}>{currentHp}</ResponsiveParagraph>
       </XStack>
-    </ZStack>
+    </ResponsiveZStack>
   )
 }
