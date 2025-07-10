@@ -10,8 +10,8 @@ export default function FpCounter(props: IActionProps) {
   const { increaseFp, decreaseFp, resetFp} = usePlayerAction(props);
   const fp = props.player.fp
 
+  const ResponsiveYStack = styled(YStack, fpCounterStyle.yStack)
   const ResponsiveButton = styled(Button, fpCounterStyle.stepperButton)
-
   const ResponsiveCountButton = styled(Button, fpCounterStyle.countButton)
 
   const countBackgroundColor = useMemo(() => {
@@ -25,7 +25,7 @@ export default function FpCounter(props: IActionProps) {
   }, [fp])
 
   return (
-    <YStack style={styleSheet.centeredContainer}>
+    <ResponsiveYStack style={styleSheet.centeredContainer}>
       <ResponsiveButton onPress={() => increaseFp(1)} // @ts-ignore
                         backgroundColor={"transparent"}
                         size={"$3"}
@@ -47,6 +47,6 @@ export default function FpCounter(props: IActionProps) {
                         backgroundColor={"transparent"}
                         size={"$3"}
                         borderRadius={"$20"}><Minus/></ResponsiveButton>
-    </YStack>
+    </ResponsiveYStack>
   )
 }

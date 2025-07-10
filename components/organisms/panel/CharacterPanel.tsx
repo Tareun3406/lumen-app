@@ -20,7 +20,7 @@ export default function CharacterPanel(props: ICharacterPanelProps) {
     return (
         <YStack>
             <TouchableOpacity onPress={ props.onClick }>
-                <ResponsiveStandingContainer>
+                <ResponsiveStandingContainer width={256} height={256}>
                     <Image
                         objectFit={"contain"}
                         width="100%"
@@ -31,7 +31,7 @@ export default function CharacterPanel(props: ICharacterPanelProps) {
                                 : characterImgSources[character.name].standingRight
                         } />
                 </ResponsiveStandingContainer>
-                <ResponsiveNameTagContainer>
+                <ResponsiveNameTagContainer  width={256} height={90}>
                     <Image 
                         objectFit={"contain"}
                         width="100%"

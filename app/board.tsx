@@ -38,7 +38,7 @@ export default function Board() {
 
   return (
     <View style={[styleSheet.centeredContainer, styleSheet.flexedContainer]}>
-      <YStack gap={"$2"} width={"90%"}>
+      <YStack gap={"$2"} width={"95%"}>
         <XStack style={styleSheet.flexSpaceEvenly}>
           <CharacterStatus player={firstPlayer} />
           <XGroup>
@@ -51,13 +51,13 @@ export default function Board() {
           </XGroup>
           <CharacterStatus player={secondPlayer} />
         </XStack>
-        <XStack style={styleSheet.flexSpaceAround}>
+        <XStack style={styleSheet.flexSpaceBetween}>
           <HpProgressBar player={firstPlayer} size={11}/>
           <GameTimer />
           <HpProgressBar player={secondPlayer} size={11}/>
         </XStack>
 
-        <XStack style={styleSheet.flexSpaceAround} gap={isWeb ? '$3' : '$0'}>
+        <XStack style={styleSheet.flexSpaceAround}>
           <DamageButtonPanel player={firstPlayer} />
           <FpCounter player={firstPlayer} />
           <TimerPanel />
