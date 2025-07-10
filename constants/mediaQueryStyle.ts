@@ -53,3 +53,27 @@ export const characterStandingPanelStyle = {
     $md: { width: 256, height: 90 },
   } as WithMediaProps<ComponentProps<typeof YStack>>,
 }
+
+export const tokenStyle = {
+  large: {
+    $sm: {width: 104, height: 104},
+    $md: {width: 116, height: 116},
+  },
+  medium: {
+    $sm: {width: 72, height: 72},
+    $md: {width: 80, height: 80},
+  },
+  small: {
+    $sm: {width: 48, height: 48},
+    $md: {width: 52, height: 52},
+  },
+}
+
+export const characterStyle = {
+  lita: {
+    tokenButton: {
+      $sm: {height: 35},
+      $md: {height: 38},
+    }
+  }
+}

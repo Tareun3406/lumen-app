@@ -28,14 +28,14 @@ export default function RevTokens(props: IActionProps) {
   return (
     <XStack gap={"$1.5"} style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
       <TouchableOpacity activeOpacity={1} style={{position: "relative"}} onPress={() => changeToggle(0)}>
-        <TokenToggleImg token={darkToken} size={116}/>
+        <TokenToggleImg token={darkToken} size={"large"}/>
       </TouchableOpacity>
 
       <TokenCounterButton tokenIndex={1} player={props.player} />
 
       <XStack style={styleSheet.centeredContainer}>
         <TouchableOpacity activeOpacity={1} style={{position: "relative"}} onPress={onClickDagger}>
-          <TokenToggleImg token={daggerToken} size={80}/>
+          <TokenToggleImg token={daggerToken} size={"medium"}/>
         </TouchableOpacity>
       </XStack>
     </XStack>

@@ -29,7 +29,7 @@ export default function OneCounterToken(props: IActionProps) {
   return (
     <XStack gap={"$1.5"} style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
       <Pressable onPress={pressToken}>
-        <TokenToggleImg token={token} size={116} />
+        <TokenToggleImg token={token} size={"large"} />
       </Pressable>
       <TokenCounterButton tokenIndex={0} player={props.player} />
     </XStack>

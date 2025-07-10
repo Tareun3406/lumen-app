@@ -19,7 +19,7 @@ export default function OneInfinityCounterToken(props: IActionProps) {
 
   return (
     <XStack gap={"$1.5"} style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
-      <TokenToggleImg token={token} size={116}/>
+      <TokenToggleImg token={token} size={"large"}/>
       <TokenCounterButtonMaxInfinity tokenIndex={0} player={player} />
     </XStack>
   )

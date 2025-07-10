@@ -21,11 +21,11 @@ export default function JoanTokens(props: IActionProps) {
 
   return (
     <XStack gap={"$1"} style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
-      <TokenToggleImg token={coin} size={116} />
+      <TokenToggleImg token={coin} size={"large"} />
       <TokenCounterButton tokenIndex={0} player={player} />
       <XStack>
         <TouchableOpacity onPress={() => changeToggle(1)}>
-          <TokenToggleImg token={disasterOne} size={116} />
+          <TokenToggleImg token={disasterOne} size={"large"} />
         </TouchableOpacity>
       </XStack>
     </XStack>

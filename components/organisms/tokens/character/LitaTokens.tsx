@@ -1,5 +1,5 @@
 import {IActionProps, usePlayerAction} from "@/hooks/actionHooks";
-import {Button, Image, RadiusTokens, View, XStack, YGroup, YStack} from "tamagui";
+import {Button, Image, RadiusTokens, styled, View, XStack, YGroup, YStack} from "tamagui";
 import TokenToggleImg from "@/components/mole/TokenToggleImg";
 import {useMemo} from "react";
 import {TouchableOpacity} from "react-native";
@@ -8,6 +8,7 @@ import {tokenImgSources} from "@/constants/imageSource";
 import TokenToolTip from "@/components/atom/TokenToolTip";
 import {useAppSelector} from "@/hooks/storeHooks";
 import {selectSettings} from "@/store/slices/settingsSlice";
+import {characterStyle, tokenStyle} from "@/constants/mediaQueryStyle";
 
 export default function LitaTokens(props: IActionProps) {
   const { player } = props;
@@ -63,35 +64,37 @@ export default function LitaTokens(props: IActionProps) {
   }, [lumen.toggle, player.currentHp])
 
 
+  const ResponsiveButton = styled(Button, characterStyle.lita.tokenButton);
+  const ResponsiveXStack = styled(XStack, tokenStyle.medium);
+
   return (
     <XStack gap={5} style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
       <XStack style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
         {/*<TouchableOpacity onPress={() => changeToggle(0)} activeOpacity={1}>*/}
-          <TokenToggleImg token={ activatedToken } size={116} toggle={region.toggle}/>
+          <TokenToggleImg token={ activatedToken } size={"large"} toggle={region.toggle}/>
         {/*</TouchableOpacity>*/}
         <YGroup>
-          <Button height={38} onPress={() => handleToggle(1)}
-                  theme={(activatedToken === guardian || lumen.toggle) ? "yellow" : null}>가디언</Button>
-          <Button height={38} onPress={() => handleToggle(2)}
-                  theme={(activatedToken === assassin || lumen.toggle) ? "yellow" : null}>어쌔신</Button>
-          <Button height={38} onPress={() => handleToggle(3)}
-                  theme={(activatedToken === paladin || lumen.toggle) ? "yellow" : null}>팔라딘</Button>
+          <ResponsiveButton onPress={() => handleToggle(1)}
+                  theme={(activatedToken === guardian || lumen.toggle) ? "yellow" : null}>가디언</ResponsiveButton>
+          <ResponsiveButton onPress={() => handleToggle(2)}
+                  theme={(activatedToken === assassin || lumen.toggle) ? "yellow" : null}>어쌔신</ResponsiveButton>
+          <ResponsiveButton onPress={() => handleToggle(3)}
+                  theme={(activatedToken === paladin || lumen.toggle) ? "yellow" : null}>팔라딘</ResponsiveButton>
         </YGroup>
       </XStack>
 
       <XStack style={styleSheet.centeredContainer}>
         <TouchableOpacity onPress={handleActiveLumen} disabled={player.currentHp > 1000} activeOpacity={1}>
           <TokenToolTip descriptions={lumen.description}>
-            <View position={"relative"}>
+            <ResponsiveXStack >
               <Image
                 source={tokenImgSources[lumen.name]}
                 objectFit={"contain"}
-                height={80}
-                width={80}
+                height={"100%"}
+                width={"100%"}
                 {...lumenTokenStyle}
               />
-
-            </View>
+            </ResponsiveXStack>
           </TokenToolTip>
         </TouchableOpacity>
       </XStack>

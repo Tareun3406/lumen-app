@@ -10,7 +10,7 @@ export default function OneToggleToken(props: IActionProps) {
 
   return (
       <TouchableOpacity activeOpacity={1} style={{position: "relative"}} onPress={() => changeToggle(0)}>
-        <TokenToggleImg token={token} size={116}/>
+        <TokenToggleImg token={token} size={"large"}/>
       </TouchableOpacity>
   )
 }

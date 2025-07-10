@@ -67,19 +67,19 @@ export default function TaoTokens(props: IActionProps) {
     <XStack style={!props.player.isFirst && flipPanel?[styleSheet.flexReverse]:[]}>
       <XStack style={styleSheet.centeredContainer} >
         <TouchableOpacity onPress={() => onClickWhenHarmony(1)} activeOpacity={1}>
-          <TokenToggleImg token={yin} size={50}/>
+          <TokenToggleImg token={yin} size={"small"}/>
         </TouchableOpacity>
       </XStack>
 
       <TokenCounterButton tokenIndex={1} player={player}/>
 
-      <TokenToggleImg token={harmony} size={116}/>
+      <TokenToggleImg token={harmony} size={"large"}/>
 
       <TokenCounterButton tokenIndex={2} player={player}/>
 
       <XStack style={styleSheet.centeredContainer}>
         <TouchableOpacity onPress={() => onClickWhenHarmony(2)} activeOpacity={1}>
-          <TokenToggleImg token={yang} size={50}/>
+          <TokenToggleImg token={yang} size={"small"}/>
         </TouchableOpacity>
       </XStack>
     </XStack>
