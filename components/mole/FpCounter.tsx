@@ -33,7 +33,6 @@ export default function FpCounter(props: IActionProps) {
       >
         <Plus/>
       </ResponsiveButton>
-
       <ResponsiveCountButton onPress={() => resetFp()}// @ts-ignore
                              backgroundColor={countBackgroundColor}
                              color={"white"}

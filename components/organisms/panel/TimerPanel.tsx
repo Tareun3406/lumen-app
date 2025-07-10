@@ -20,7 +20,7 @@ export default function TimerPanel() {
     <XStack>
       <YStack gap={5}>
         <ResponsiveReadyTimer onPress={toggleReadyTimerAction} theme={readyTimerTheme} // @ts-ignore
-                              borderRadius={"$20"} fontWeight={"700"} fontSize={"$9"}
+                              borderRadius={"$20"} fontWeight={"700"}
                               themeInverse={readyTimer.time <= 0}
         >
           {readyTimer.time.toString()}
