@@ -13,10 +13,10 @@ export const tamaguiConfig = createTamagui({
       heading: pretendardFont,
     },
     media: {
-      xs: {minWidth: 0, maxWidth: 699},
-      sm: {minWidth: 700, maxWidth: 799},
-      md: {minWidth: 800, maxWidth: 899},
-      lg: {minWidth: 900},
+        xs: {minWidth: 0, maxWidth: 575},       // 모바일 (~576px)
+        sm: {minWidth: 576, maxWidth: 767},     // 큰 모바일/작은 태블릿 (576-768px)
+        md: {minWidth: 768, maxWidth: 991},     // 태블릿 (768-992px)
+        lg: {minWidth: 992},                    // 데스크톱 (992px+)
     },
 })
 
