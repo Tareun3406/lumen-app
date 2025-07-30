@@ -52,9 +52,9 @@ export default function Board() {
           <CharacterStatus player={secondPlayer} />
         </XStack>
         <XStack style={styleSheet.flexSpaceBetween}>
-          <HpProgressBar player={firstPlayer}/>
+          <HpProgressBar player={firstPlayer} size={11}/>
           <GameTimer />
-          <HpProgressBar player={secondPlayer}/>
+          <HpProgressBar player={secondPlayer} size={11}/>
         </XStack>
 
         <XStack style={styleSheet.flexSpaceAround}>

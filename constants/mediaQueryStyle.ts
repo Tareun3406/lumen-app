@@ -1,31 +1,6 @@
 import {WithMediaProps} from "@tamagui/core";
 import {ComponentProps} from "react";
-import {Button, Paragraph, Progress, XStack, YStack, ZStack} from "tamagui";
-
-export const characterStatusStyle = {
-
-}
-
-export const hpStatusStyle = {
-  zStack: {
-    $xs: {height: 24},
-    $sm: {height: 28},
-    $md: {height: 32},
-    $lg: {height: 36},
-  } as WithMediaProps<ComponentProps<typeof ZStack>>,
-  progress: {
-    $xs: {height: 24},
-    $sm: {height: 28},
-    $md: {height: 32},
-    $lg: {height: 36},
-  } as WithMediaProps<ComponentProps<typeof Progress>>,
-  paragraph: {
-    $xs: {size: "$4"},
-    $sm: {size: "$5"},
-    $md: {size: "$6"},
-    $lg: {size: "$7"},
-  } as WithMediaProps<ComponentProps<typeof Paragraph>>,
-}
+import {Button, XStack, YStack} from "tamagui";
 
 export const damageButtonPanelStyle = {
   button: {
