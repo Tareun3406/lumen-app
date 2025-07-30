@@ -37,8 +37,8 @@ export default function DamageButtonPanel(props: IActionProps) {
       </ResponsiveXStack>
       <ResponsiveXStack style={stackStyle}>
         <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(700)}>-700</ResponsiveButton>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(1000)} theme={"red"}>-1000</ResponsiveButton>
         <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(100)} theme={"green"}>+100</ResponsiveButton>
+        <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(200)} theme={"green"}>+200</ResponsiveButton>
       </ResponsiveXStack>
     </ResponsiveYStack>
   )
