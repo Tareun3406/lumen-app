@@ -30,7 +30,7 @@ export const hpStatusStyle = {
 export const damageButtonPanelStyle = {
   button: {
     $xs: { size: "$2",width: "$5", height: "$2.5"},
-    $sm: { size: "$3",width: "$6"},
+    $sm: { size: "$3", width: 56, fontSize: "$3", padding: "$1"},
     $md: { size: "$4", width: "$7"},
     $lg: { size: "$5", width: "$9"},
   } as WithMediaProps<ComponentProps<typeof Button>>,
@@ -39,14 +39,14 @@ export const damageButtonPanelStyle = {
     $xs: {gap: "$2"},
     $sm: {gap: "$2"},
     $md: {gap: "$2"},
-    $lg: {gap: "$2"},
+    $lg: {gap: "$3"},
   } as WithMediaProps<ComponentProps<typeof YStack>>,
 
   xStack: {
     $xs: {gap: "$2"},
     $sm: {gap: "$2"},
     $md: {gap: "$2"},
-    $lg: {gap: "$2"},
+    $lg: {gap: "$3"},
   } as WithMediaProps<ComponentProps<typeof XStack>>,
 }
 
@@ -65,7 +65,7 @@ export const fpCounterStyle = {
   } as WithMediaProps<ComponentProps<typeof Button>>,
   countButton: {
     $xs: {size: "$2", fontSize: "$5", width: "$4.5", height: "$3"},
-    $sm: {size: "$2.5", fontSize: "$6", width: "$5", height: "$3.5"},
+    $sm: {size: "$2.5", fontSize: "$6", width: 48, height: "$3.5"},
     $md: {size: "$3", fontSize: "$6", width: "$6", height: "$4"},
     $lg: {fontSize: "$8", width: "$7", height: "$5"},
   } as WithMediaProps<ComponentProps<typeof Button>>,
@@ -84,37 +84,37 @@ export const timerStyle = {
 
 export const characterStandingPanelStyle = {
   standingImageContainer: {
-    $xs: { width: 198, height: 198 },
-    $sm: { width: 256, height: 256 },
+    $xs: { width: 160, height: 160 },
+    $sm: { width: 192, height: 192 },
     $md: { width: 256, height: 256 },
-    $lg: { width: 256, height: 256 },
+    $lg: { width: 384, height: 384 },
   } as WithMediaProps<ComponentProps<typeof YStack>>,
   nameTagImageContainer: {
-    $xs: { width: 198, height: 75 },
-    $sm: { width: 256, height: 90 },
+    $xs: { width: 160, height: 60 },
+    $sm: { width: 198, height: 75},
     $md: { width: 256, height: 90 },
-    $lg: { width: 256, height: 90 },
+    $lg: { width: 384, height: 95 },
   } as WithMediaProps<ComponentProps<typeof YStack>>,
 }
 
 export const tokenStyle = {
   large: {
-    $xs: {width: 92, height: 92},
-    $sm: {width: 104, height: 104},
+    $xs: {width: 64, height: 64},
+    $sm: {width: 88, height: 88},
     $md: {width: 116, height: 116},
-    $lg: {width: 128, height: 128},
+    $lg: {width: 136, height: 136},
   },
   medium: {
-    $xs: {width: 64, height: 64},
+    $xs: {width: 52, height: 52},
     $sm: {width: 72, height: 72},
     $md: {width: 80, height: 80},
-    $lg: {width: 88, height: 88},
+    $lg: {width: 92, height: 92},
   },
   small: {
-    $xs: {width: 44, height: 44},
+    $xs: {width: 40, height: 40},
     $sm: {width: 48, height: 48},
     $md: {width: 52, height: 52},
-    $lg: {width: 56, height: 56},
+    $lg: {width: 72, height: 72},
   },
 }
 
@@ -126,8 +126,8 @@ export const tokenCounterStyle = {
     $lg: {size: "$2"},
   } as WithMediaProps<ComponentProps<typeof Button>>,
   counter: {
-    $xs: {size: "$2.5", width: "$5", padding: "$1.5"},
-    $sm: {size: "$3"},
+    $xs: {size: "$1.5", width: "$5", padding: "$1.5"},
+    $sm: {size: "$2"},
     $md: {size: "$3"},
     $lg: {size: "$3"},
   } as WithMediaProps<ComponentProps<typeof Button>>
