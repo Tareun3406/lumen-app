@@ -30,7 +30,7 @@ export default function DamageButtonPanel(props: IActionProps) {
       return (
         <>
           <ResponsiveXStack style={stackStyle}>
-            <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(700)}>-700</ResponsiveButton>
+            <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(700)} theme={"red"}>-700</ResponsiveButton>
             <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(100)} theme={"green"}>+100</ResponsiveButton>
             <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(200)} theme={"green"}>+200</ResponsiveButton>
           </ResponsiveXStack>
@@ -41,9 +41,9 @@ export default function DamageButtonPanel(props: IActionProps) {
         (
           <>
             <ResponsiveXStack style={stackStyle}>
-              <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(700)}>-700</ResponsiveButton>
-              <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(800)}>-800</ResponsiveButton>
-              <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(900)}>-900</ResponsiveButton>
+              <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(700)} theme={"red"}>-700</ResponsiveButton>
+              <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(800)} theme={"red"}>-800</ResponsiveButton>
+              <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(900)} theme={"red"}>-900</ResponsiveButton>
             </ResponsiveXStack>
             <ResponsiveXStack style={stackStyle}>
               <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(100)} theme={"green"}>+100</ResponsiveButton>
@@ -60,14 +60,14 @@ export default function DamageButtonPanel(props: IActionProps) {
   return (
     <ResponsiveYStack style={styleSheet.centeredContainer}>
       <ResponsiveXStack style={stackStyle}>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(100)}>-100</ResponsiveButton>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(200)}>-200</ResponsiveButton>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(300)}>-300</ResponsiveButton>
+        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(100)} theme={"red"}>-100</ResponsiveButton>
+        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(200)} theme={"red"}>-200</ResponsiveButton>
+        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(300)} theme={"red"}>-300</ResponsiveButton>
       </ResponsiveXStack>
       <ResponsiveXStack style={stackStyle}>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(400)}>-400</ResponsiveButton>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(500)}>-500</ResponsiveButton>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(600)}>-600</ResponsiveButton>
+        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(400)} theme={"red"}>-400</ResponsiveButton>
+        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(500)} theme={"red"}>-500</ResponsiveButton>
+        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(600)} theme={"red"}>-600</ResponsiveButton>
       </ResponsiveXStack>
       {ResponsiveButtonStacks}
     </ResponsiveYStack>
