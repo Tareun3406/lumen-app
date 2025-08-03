@@ -1,6 +1,6 @@
 import {Button, isWeb, View, XGroup, XStack, YStack} from "tamagui";
 import {useAppSelector} from "@/hooks/storeHooks";
-import {selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
+import {selectDamageLogs, selectFirstPlayer, selectSecondPlayer} from "@/store/slices/boardSlice";
 import {HpProgressBar} from "@/components/mole/HpProgressBar";
 import DamageButtonPanel from "@/components/organisms/panel/DamageButtonPanel";
 import CharacterStatus from "@/components/mole/CharacterStatus";
@@ -13,11 +13,13 @@ import {useRouter} from "expo-router";
 import RemoteDialog from "@/components/organisms/dialoge/RemoteDialog";
 import {useBoardPublisher} from "@/hooks/sideEffectHook";
 import DamageLogSheet from "@/components/organisms/sheet/DamageLogSheet";
-import {useState} from "react";
+import {useMemo, useState} from "react";
 import {useTimer} from "@/hooks/timerHooks";
 import FpCounter from "@/components/mole/FpCounter";
 import ResetAlertDialog from "@/components/organisms/dialoge/ResetAlertDialog";
 import {GameTimer} from "@/components/mole/GameTimer";
+import {useWindowDimensions} from "react-native";
+import DamageLogPanel from "@/components/organisms/panel/DamageLogPanel";
 
 export default function Board() {
   const firstPlayer = useAppSelector(selectFirstPlayer);
@@ -26,6 +28,9 @@ export default function Board() {
   const { initGameTimerAction } = useTimer()
   const router = useRouter()
   useBoardPublisher();
+  const { width, height } = useWindowDimensions();
+  const aspectRatio = width / height;
+  const damageLogs = useAppSelector(selectDamageLogs);
 
   const [resetAlertOpen, setResetAlertOpen] = useState(false);
   const [damageLogOpen, setDamageLogOpen] = useState(false);
@@ -35,6 +40,9 @@ export default function Board() {
     initializeBoard()
     initGameTimerAction()
   }
+  const isFoldRatio = useMemo(() => {
+    return aspectRatio < 1.5
+  }, [aspectRatio])
 
   return (
     <View style={[styleSheet.centeredContainer, styleSheet.flexedContainer]}>
@@ -44,9 +52,13 @@ export default function Board() {
           <XGroup>
             <XGroup.Item><Button onPress={() => router.push('/character')} icon={User} /></XGroup.Item>
             <XGroup.Item><Button onPress={() => setResetAlertOpen(true)} icon={RotateCw}/></XGroup.Item>
-            {/*<XGroup.Item><Button onPress={() => dispatch(setShowRemoteDialog(true))} icon={Cable}/></XGroup.Item>*/}
-            {/*<XGroup.Item><Button onPress={() => {}} icon={Settings}/></XGroup.Item>*/}
-            <XGroup.Item><Button onPress={() => {setDamageLogOpen(true)}} icon={TextSearch}/></XGroup.Item>
+            {
+              !isFoldRatio &&
+              <XGroup.Item>
+                <Button onPress={() => {setDamageLogOpen(true)}} icon={TextSearch}/>
+                <DamageLogSheet open={damageLogOpen}  setOpen={(open) => setDamageLogOpen(open)}/>
+              </XGroup.Item>
+            }
             <XGroup.Item><Button onPress={goToPreviousDamage} icon={StepBack}/></XGroup.Item>
           </XGroup>
           <CharacterStatus player={secondPlayer} />
@@ -73,10 +85,16 @@ export default function Board() {
             <TokenPanel player={secondPlayer} otherPlayer={firstPlayer} />
           </XStack>
         </XStack>
+        {
+          isFoldRatio &&
+          <XStack height={"25%"} style={{marginTop:"10"}} borderColor={"black"} borderTopWidth={"$1"} borderBottomWidth={"$1"}>
+            <DamageLogPanel damageLogs={damageLogs} />
+          </XStack>
+        }
       </YStack>
+
       <RemoteDialog />
       <ResetAlertDialog open={resetAlertOpen} close={() => setResetAlertOpen(false)} action={initialize} />
-      <DamageLogSheet open={damageLogOpen}  setOpen={(open) => setDamageLogOpen(open)}/>
     </View>
   )
 }

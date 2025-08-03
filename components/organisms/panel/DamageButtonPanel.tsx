@@ -5,10 +5,14 @@ import {useMemo} from "react";
 import {useAppSelector} from "@/hooks/storeHooks";
 import {selectSettings} from "@/store/slices/settingsSlice";
 import { damageButtonPanelStyle } from "@/constants/mediaQueryStyle";
+import { useWindowDimensions } from 'react-native';
 
 export default function DamageButtonPanel(props: IActionProps) {
   const { damageToHp, healToHp } = usePlayerAction(props);
   const { flipPanel } = useAppSelector(selectSettings);
+  const { width, height } = useWindowDimensions();
+  const aspectRatio = width / height;
+  const fontWeight = "700"
 
   const ResponsiveButton = styled(Button, damageButtonPanelStyle.button);
   const ResponsiveXStack = styled(XStack, damageButtonPanelStyle.xStack);
@@ -19,9 +23,39 @@ export default function DamageButtonPanel(props: IActionProps) {
       return [styleSheet.flexSpaceAround, styleSheet.flexReverse]
     }
     return [styleSheet.flexSpaceAround]
-  }, [flipPanel])
+  }, [flipPanel, props.player.isFirst])
 
-  const fontWeight = "700"
+  const ResponsiveButtonStacks = useMemo(() => {
+    if (aspectRatio > 1.8) {
+      return (
+        <>
+          <ResponsiveXStack style={stackStyle}>
+            <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(700)}>-700</ResponsiveButton>
+            <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(100)} theme={"green"}>+100</ResponsiveButton>
+            <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(200)} theme={"green"}>+200</ResponsiveButton>
+          </ResponsiveXStack>
+        </>
+      )
+    } else {
+      return (
+        (
+          <>
+            <ResponsiveXStack style={stackStyle}>
+              <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(700)}>-700</ResponsiveButton>
+              <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(800)}>-800</ResponsiveButton>
+              <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(900)}>-900</ResponsiveButton>
+            </ResponsiveXStack>
+            <ResponsiveXStack style={stackStyle}>
+              <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(100)} theme={"green"}>+100</ResponsiveButton>
+              <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(200)} theme={"green"}>+200</ResponsiveButton>
+              <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(200)} theme={"green"}>+400</ResponsiveButton>
+            </ResponsiveXStack>
+          </>
+        )
+      )
+    }
+  }, [ResponsiveButton, ResponsiveXStack, aspectRatio, damageToHp, healToHp, stackStyle]);
+
 
   return (
     <ResponsiveYStack style={styleSheet.centeredContainer}>
@@ -35,11 +69,7 @@ export default function DamageButtonPanel(props: IActionProps) {
         <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(500)}>-500</ResponsiveButton>
         <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(600)}>-600</ResponsiveButton>
       </ResponsiveXStack>
-      <ResponsiveXStack style={stackStyle}>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => damageToHp(700)}>-700</ResponsiveButton>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(100)} theme={"green"}>+100</ResponsiveButton>
-        <ResponsiveButton fontWeight={fontWeight} onPress={() => healToHp(200)} theme={"green"}>+200</ResponsiveButton>
-      </ResponsiveXStack>
+      {ResponsiveButtonStacks}
     </ResponsiveYStack>
   )
 }
