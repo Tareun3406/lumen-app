@@ -4,10 +4,10 @@ import {Button, XStack, YStack} from "tamagui";
 
 export const damageButtonPanelStyle = {
   button: {
-    $xs: { size: "$2",width: "$5", height: "$2.5"},
-    $sm: { size: "$3", width: 56, fontSize: "$3", padding: "$1"},
-    $md: { size: "$4", width: "$7"},
-    $lg: { size: "$5", width: "$9"},
+    $xs: { size: "$2",width: "$5", height: "$2.5", padding: 0},
+    $sm: { size: "$3", width: 56, fontSize: "$3", padding: 0},
+    $md: { size: "$4", width: "$7", padding: "$1"},
+    $lg: { size: "$5", width: "$9",padding: "$1"},
   } as WithMediaProps<ComponentProps<typeof Button>>,
 
   yStack: {
