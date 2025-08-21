@@ -2,7 +2,7 @@
   "expo": {
     "name": "lumen-app",
     "slug": "lumen-app",
-    "version": "2.0.13",
+    "version": "2.0.14",
     "orientation": "landscape",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -10,12 +10,12 @@
     "newArchEnabled": true,
     "ios": {
       "bundleIdentifier": "kr.tareun.lumen",
-      "buildNumber": "2.0.13",
+      "buildNumber": "2.0.14",
       "supportsTablet": true
     },
     "android": {
       "package": "kr.tareun.lumen",
-      "versionCode": 13,
+      "versionCode": 14,
       "icon": "./assets/images/icon.png"
     },
     "web": {
