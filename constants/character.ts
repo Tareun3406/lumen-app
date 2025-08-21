@@ -360,7 +360,7 @@ const characters: readonly Character[] = Object.freeze([
         type: "COUNTER",
         toggle: true,
         count: 2,
-        maxCount: 3,
+        maxCount: 5,
         toggleCount: 1,
         description:
           "루멘 페이즈 시 -1 하고 [서드아이] 발동가능, 이번턴 상대는 무작위 한장을 공개 및 유지하고 먼저 레디해야한다. 체력이 2000 이하가 될경우 +1"
